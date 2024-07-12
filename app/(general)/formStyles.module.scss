@@ -4,6 +4,10 @@
     height: 100vh;
 }
 
+.title{
+    margin-bottom: 5%;
+}
+
 .leftSide {
     display: flex;
     justify-content: center;
@@ -27,25 +31,29 @@
 
 .formGroup {
     margin-bottom: 1rem;
-    text-align: left;
-}
-
-.label {
-    display: block;
-    margin-bottom: 0.5rem;
 }
 
 .inputWrapper {
+    
     position: relative;
 }
 
 .input {
     width: 100%;
-    padding: 0.5rem;
-    background-color: #191C2F; /* Mesma cor do background */
-    border: 1px solid #ccc; /* Pequena borda */
-    border-radius: 15px; /* Mais arredondado */
-    color: white; /* Cor do texto */
+    padding: 0.75rem; /* Aumentado para 0.75rem para mais espaço */
+    background-color: #191C2F; 
+    border: 1px solid #444; /* Pequena borda escura */
+    border-radius: 10px; /* Borda arredondada */
+    color: white;
+}
+
+.selection{
+    width: 115%;
+    padding: 0.75rem; 
+    background-color: #191C2F; 
+    border: 1px solid #444;
+    border-radius: 10px; 
+    color: white; 
 }
 
 .input:focus {
@@ -55,7 +63,7 @@
 
 .icon {
     position: absolute;
-    left: 92%;
+    left: 96%;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none; /* Para que o ícone não interfira na interação do usuário com o input */
@@ -75,7 +83,6 @@
 }
 
 .loginButton:hover {
-    background-color: #005bb5;
     text-decoration: none;
 }
 

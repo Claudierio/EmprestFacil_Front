@@ -3,31 +3,49 @@
 import React from "react";
 import styles from "../formStyles.module.scss";
 import Link from "next/link";
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 export default function Login() {
   return (
     <div className={styles.container}>
       <div className={styles.leftSide}>
         <div className={styles.loginBox}>
-          <h1>Login</h1>
+          <div className={styles.title}>
+            <h1>Login</h1>
+          </div>
           <form>
             <div className={styles.formGroup}>
-              <label htmlFor="username" className={styles.label}>Usuário</label>
               <div className={styles.inputWrapper}>
-                <input type="text" id="username" name="username" className={styles.input} required />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nome"
+                  className={styles.input}
+                  required
+                />
                 <PersonOutlineOutlinedIcon className={styles.icon} />
               </div>
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="password" className={styles.label}>Senha</label>
-              <div className={styles.inputWrapper}>
-                <input type="password" id="password" name="password" className={styles.input} required />
-                <LockOutlinedIcon className={styles.icon} />
+              <div className={styles.formGroup}>
+                <div className={styles.inputWrapper}>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Senha"
+                    className={styles.input}
+                    required
+                  />
+                  <LockOutlinedIcon className={styles.icon} />
+                </div>
               </div>
             </div>
-            <button type="submit" className={styles.loginButton}>Entrar</button>
+            <button type="submit" className={styles.loginButton}>
+              Entrar
+            </button>
           </form>
           <div className={styles.parentContainer}>
             <span className={styles.loginContainer}>
