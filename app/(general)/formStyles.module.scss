@@ -1,0 +1,105 @@
+.container {
+    color: white;
+    display: flex;
+    height: 100vh;
+}
+
+.leftSide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #191C2F;
+}
+
+.rightSide {
+    flex: 1;
+    background-image: url('../../public/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.loginBox {
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #191C2F; /* Mesma cor do background */
+    border: 1px solid #ccc; /* Pequena borda */
+    border-radius: 15px; /* Mais arredondado */
+    color: white; /* Cor do texto */
+}
+
+.input:focus {
+    outline: none;
+    border-color: #00474B; /* Cor da borda quando o input está focado */
+}
+
+.icon {
+    position: absolute;
+    left: 92%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Para que o ícone não interfira na interação do usuário com o input */
+    font-size: 20px;
+}
+
+.loginButton {
+    width: 108%;
+    padding: 0.75rem;
+    background-color: #00474B;
+    color: white;
+    border: none;
+    border-radius: 15px; /* Mais arredondado */
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.loginButton:hover {
+    background-color: #005bb5;
+    text-decoration: none;
+}
+
+.loginContainer {
+    margin-bottom: 40px;
+}
+
+.registerLink {
+    color: #0070f3;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.registerLink:hover {
+    text-decoration: none;
+}
+
+.loginContainer {
+    padding: 10px;
+}
+
+.loginLink {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
