@@ -1,56 +1,106 @@
 .toplevel {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--fundopadrao);
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--fundopadrao);
+  padding: 10px;
+}
+
+.logoImg {
+  display: flex;
+  align-items: center;
+  height: 73px;
+  width: 200px;
+  margin-right: 8px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navleft {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.navLink {
+  all: unset;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  text-wrap: nowrap;
+  gap: 8px;
+  cursor: pointer;
+  svg {
+    height: 24px;
+    width: 24px;
   }
-  
+}
+
+.navright {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  color: white;
+}
+
+.avatarimg {
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+
+@media (max-width: 768px) {
+  .toplevel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .logoImg {
-    display: flex;
-    align-items: center;
-    height: 73px;
-    width: 200px;
-    margin-right: 8px;
+    display: none;
   }
-  
+
   .navbar {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
   }
-  
+
   .navleft {
-    display: flex;
-    flex: 1;
-    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 10px;
   }
-  
+
+  .navright {
+    width: 100%;
+    justify-content: center;
+  }
+
   .navLink {
-    all: unset;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    text-wrap: nowrap;
-    gap: 8px;
-    cursor: pointer;
-    svg {
-      height: 24px;
-      width: 24px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 414px) {
+    .toplevel {
+        padding: 5%;
+      }
+    .navLink {
+        padding: 8px 8px;
     }
   }
-  
-  .navright {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: auto;
-    color: white;
+
+  @media (max-width: 375px) {
+    .toplevel {
+        padding: 5%;
+      }
+    .navLink {
+        gap: 0px;
+    }
   }
-  
-  .avatarimg {
-    border-radius: 50%;
-    margin-left: 8px;
-  }
-  
