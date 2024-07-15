@@ -99,7 +99,7 @@ export default function Register() {
                 <ArrowDropDownIcon className={styles.icon} />
               </div>
             </div>
-            <button type="submit" className={styles.loginButton}>
+            <button type="submit" className={styles.registerButton}>
               Proximo
             </button>
           </form>
