@@ -34,28 +34,32 @@
 }
 
 .inputWrapper {
-    
     position: relative;
 }
 
 .input {
     width: 100%;
-    padding: 0.75rem; /* Aumentado para 0.75rem para mais espaço */
+    padding: 0.75rem;
     background-color: #191C2F; 
-    border: 1px solid #444; /* Pequena borda escura */
-    border-radius: 10px; /* Borda arredondada */
+    border: 1px solid #444;
+    border-radius: 10px;
     color: white;
 }
 
-.selection{
+.selection {
     width: 115%;
-    padding: 0.75rem; 
-    background-color: #191C2F; 
+    padding: 0.75rem;
+    background-color: #191C2F;
     border: 1px solid #444;
-    border-radius: 10px; 
-    color: white; 
-}
-
+    border-radius: 10px;
+    color: white;
+    appearance: none; /* Remove a seta padrão do select */
+  }
+  
+  .selectWrapper {
+    position: relative;
+  }
+  
 .input:focus {
     outline: none;
     border-color: #00474B; /* Cor da borda quando o input está focado */
@@ -63,7 +67,7 @@
 
 .icon {
     position: absolute;
-    left: 96%;
+    left: 98%;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none; /* Para que o ícone não interfira na interação do usuário com o input */
@@ -71,7 +75,7 @@
 }
 
 .loginButton {
-    width: 108%;
+    width: 116%;
     padding: 0.75rem;
     background-color: #00474B;
     color: white;
@@ -109,4 +113,38 @@
     color: #fff;
     font-weight: bold;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: 100vh; /* Garante que o container ocupe a altura total da viewport */
+    }
+    
+    .rightSide {
+        display: none; 
+    }
+
+    .leftSide {
+        flex: none; 
+        width: 100%; 
+    }
+
+    .loginBox {
+        width: 90%; 
+        margin: 0 auto; /* Centraliza a caixa de login */
+    }
+
+    .input, .selection {
+        width: 100%; 
+    }
+
+    .loginButton{
+        width: 108%;
+    }
+
+    .selection{
+        width: 107%;
+    }
+
+
 }
