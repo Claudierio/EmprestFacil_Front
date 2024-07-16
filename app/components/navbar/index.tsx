@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Navbar.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import navlogoteste from "@/public/navlogoteste.png";
+import navlogoteste from "@/public/logo_nav.png";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
