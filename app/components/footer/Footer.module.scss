@@ -1,0 +1,87 @@
+.toplevel {
+    width: 100%;
+    background-color: #191C2F;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.logoFooter {
+    width: 15%;
+    height: auto;
+    flex-shrink: 0;
+    margin: 1, 7rem;
+    padding: 1rem;
+}
+
+.navFooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navFooter a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navFooter a:hover {
+    color: #5f6169;
+}
+
+.navFooter a {
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 3px;
+}
+
+@media only screen and (max-width: 450px) {
+    .navFooter li {
+        font-size: 9px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navFooter a {
+        font-size: 9px;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.footerDisney,
+.footerDireitosReservados {
+    margin-top: 1.5rem;
+    padding: 0.9rem;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    width: 30%;
+    line-height: 17px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .footerDisney,
+    .footerDireitosReservados {
+        font-size: 10px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .logoFooter {
+        width: 45%;
+    }
+}
