@@ -5,12 +5,12 @@ import styles from "./About.module.scss";
 import image1 from "../../../public/bannerSite.webp";
 import image2 from "../../../public/bannersite2.webp";
 import Image from "next/image";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Divider from '@mui/material/Divider';
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Divider from "@mui/material/Divider";
 
 export default function AboutUs() {
   const accordionStyle = {
@@ -18,8 +18,8 @@ export default function AboutUs() {
     color: "rgb(178, 172, 162)",
     marginBottom: 2,
     border: "1px solid rgba(178, 172, 162, 0.473)",
-    borderRadius: "8px", 
-    overflow: "hidden" 
+    borderRadius: "8px",
+    overflow: "hidden",
   };
 
   return (
@@ -28,7 +28,17 @@ export default function AboutUs() {
         <div className={styles.text}>
           <h1>Sobre Nós</h1>
           <p>
-            O <strong>A.G.I.O.T.A. (Aplicativo Gestor de Informações e Organização de Transações de Adiantamentos)</strong> é uma ferramenta inovadora e completa para a gestão de empréstimos pessoais, criada com o objetivo de facilitar o controle, a organização e o acompanhamento das finanças dos nossos usuários. Com uma interface intuitiva e funcional, o aplicativo oferece diversas funcionalidades que garantem uma administração eficiente e prática dos adiantamentos pessoais.
+            O{" "}
+            <strong>
+              A.G.I.O.T.A. (Aplicativo Gestor de Informações e Organização de
+              Transações de Adiantamentos)
+            </strong>{" "}
+            é uma ferramenta inovadora e completa para a gestão de empréstimos
+            pessoais, criada com o objetivo de facilitar o controle, a
+            organização e o acompanhamento das finanças dos nossos usuários. Com
+            uma interface intuitiva e funcional, o aplicativo oferece diversas
+            funcionalidades que garantem uma administração eficiente e prática
+            dos adiantamentos pessoais.
           </p>
         </div>
         <div className={styles.image}>
@@ -40,7 +50,10 @@ export default function AboutUs() {
         <div className={styles.text}>
           <h2>Nosso Objetivo</h2>
           <p>
-            Nosso principal objetivo é desenvolver um aplicativo que permita aos usuários administrar com eficiência e praticidade todos os aspectos relacionados a empréstimos pessoais, proporcionando uma experiência de uso agradável e segura.
+            Nosso principal objetivo é desenvolver um aplicativo que permita aos
+            usuários administrar com eficiência e praticidade todos os aspectos
+            relacionados a empréstimos pessoais, proporcionando uma experiência
+            de uso agradável e segura.
           </p>
         </div>
         <div className={styles.image}>
@@ -61,15 +74,24 @@ export default function AboutUs() {
           <AccordionDetails>
             <Typography component="div">
               <ul className={styles.list}>
-                <li>Armazenar e organizar informações dos adiantamentos pessoais.</li>
+                <li>
+                  Armazenar e organizar informações dos adiantamentos pessoais.
+                </li>
                 <Divider sx={{ my: 1 }} />
-                <li>Registrar dados como valor do adiantamento, taxa de juros, datas de vencimento e parcelas.</li>
+                <li>
+                  Registrar dados como valor do adiantamento, taxa de juros,
+                  datas de vencimento e parcelas.
+                </li>
                 <Divider sx={{ my: 1 }} />
-                <li>Criar listas de transações relacionadas aos adiantamentos.</li>
+                <li>
+                  Criar listas de transações relacionadas aos adiantamentos.
+                </li>
                 <Divider sx={{ my: 1 }} />
                 <li>Acompanhar o progresso de cada transação.</li>
                 <Divider sx={{ my: 1 }} />
-                <li>Atualizar valores das dívidas, de acordo com a taxa de juros.</li>
+                <li>
+                  Atualizar valores das dívidas, de acordo com a taxa de juros.
+                </li>
                 <Divider sx={{ my: 1 }} />
                 <li>Permitir pagamentos totais ou parciais.</li>
               </ul>
@@ -88,8 +110,10 @@ export default function AboutUs() {
             <Typography component="div">
               <ul className={styles.list}>
                 <li>Planejar pagamentos e controlar prazos.</li>
-                <Divider sx={{ my: 1}} />
-                <li>Receber notificações e lembretes sobre datas importantes.</li>
+                <Divider sx={{ my: 1 }} />
+                <li>
+                  Receber notificações e lembretes sobre datas importantes.
+                </li>
                 <Divider sx={{ my: 1 }} />
                 <li>Buscar agiotas com melhores taxas de juros.</li>
                 <Divider sx={{ my: 1 }} />
@@ -127,7 +151,10 @@ export default function AboutUs() {
           <AccordionDetails>
             <Typography component="div">
               <ul className={styles.list}>
-                <li>Manter um registro detalhado de pagamentos realizados e valores devidos.</li>
+                <li>
+                  Manter um registro detalhado de pagamentos realizados e
+                  valores devidos.
+                </li>
               </ul>
             </Typography>
           </AccordionDetails>
@@ -153,7 +180,11 @@ export default function AboutUs() {
       <div className={styles.content}>
         <h2>Nosso Compromisso</h2>
         <p>
-          Estamos comprometidos em oferecer uma solução financeira com ética, qualidade e transparência para nossos usuários, proporcionando um relacionamento duradouro e de confiança. Nossa missão é tornar a gestão de adiantamentos uma tarefa simples e segura, ajudando nossos usuários a alcançar suas metas financeiras com tranquilidade.
+          Estamos comprometidos em oferecer uma solução financeira com ética,
+          qualidade e transparência para nossos usuários, proporcionando um
+          relacionamento duradouro e de confiança. Nossa missão é tornar a
+          gestão de adiantamentos uma tarefa simples e segura, ajudando nossos
+          usuários a alcançar suas metas financeiras com tranquilidade.
         </p>
       </div>
     </div>
