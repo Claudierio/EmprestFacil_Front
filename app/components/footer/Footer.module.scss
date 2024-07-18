@@ -1,6 +1,6 @@
 .toplevel {
     width: 100%;
-    background-color: #191C2F;
+    background-color: var(--fundopadrao);
     display: flex;
     align-items: center;
     color: white;
@@ -13,13 +13,6 @@
     position: fixed;
 }
 
-.logoFooter {
-    width: 15%;
-    height: auto;
-    flex-shrink: 0;
-    margin: 1, 7rem;
-    padding: 1rem;
-}
 
 .navFooter {
     display: flex;
@@ -58,10 +51,16 @@
     }
 }
 
-.footerDisney,
-.footerDireitosReservados {
-    margin-top: 1.5rem;
+.addressSection {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 14px;
+    line-height: 1.5;
     padding: 0.9rem;
+}
+
+.copyright {
+    margin-top: 1.5rem;
     color: #fff;
     text-align: center;
     font-size: 14px;
@@ -72,9 +71,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-
-    .footerDisney,
-    .footerDireitosReservados {
+    .copyright {
         font-size: 10px;
         width: 100%;
     }

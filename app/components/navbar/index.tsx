@@ -6,6 +6,7 @@ import navlogoteste from "@/public/logo_nav.png";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
+import Avatar from "../../../public/avatar_default.png"
 
 export default function Navbar() {
   return (
@@ -20,7 +21,7 @@ export default function Navbar() {
             <span>Início</span>
           </Link>
 
-          <Link className={styles.navLink} href="/quem-somos">
+          <Link className={styles.navLink} href="/about">
             <PersonOutlineOutlinedIcon />
             <span>Quem somos</span>
           </Link>
@@ -34,7 +35,7 @@ export default function Navbar() {
         <div className={styles.navright}>
           <p>Nome do usuário</p>
           <Image
-            src={""}
+            src={Avatar}
             alt="Avatar"
             width={45}
             height={45}
