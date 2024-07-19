@@ -41,6 +41,11 @@
   }
 }
 
+.navLink.active {
+  color: #00474B; 
+  font-weight: bold;
+}
+
 .navright {
   display: flex;
   align-items: center;
