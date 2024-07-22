@@ -15,11 +15,14 @@ import Divider from "@mui/material/Divider";
 export default function AboutUs() {
   const accordionStyle = {
     backgroundColor: "#1a1a29",
-    color: "rgb(178, 172, 162)",
+    color: "#00767c",
     marginBottom: 2,
     border: "1px solid rgba(178, 172, 162, 0.473)",
     borderRadius: "8px",
     overflow: "hidden",
+    '&:hover': {
+      boxShadow: 'rgba(0, 0, 0, 0.3) 0px 5px 15px',
+    },
   };
 
   return (
@@ -63,13 +66,13 @@ export default function AboutUs() {
 
       <div className={styles.content}>
         <h2>Funcionalidades Principais</h2>
-        <Accordion sx={accordionStyle}>
+        <Accordion sx={accordionStyle} className={styles.accordion}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon sx={{ color: "rgb(178, 172, 162)" }} />}
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            <Typography>Gestão de Adiantamentos</Typography>
+            <Typography sx={{fontWeight: "800"}}>Gestão de Adiantamentos</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -104,7 +107,7 @@ export default function AboutUs() {
             aria-controls="panel2-content"
             id="panel2-header"
           >
-            <Typography>Organização</Typography>
+            <Typography sx={{fontWeight: "800"}}>Organização</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -128,7 +131,7 @@ export default function AboutUs() {
             aria-controls="panel3-content"
             id="panel3-header"
           >
-            <Typography>Análises e Relatórios</Typography>
+            <Typography sx={{fontWeight: "800"}}>Análises e Relatórios</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -146,7 +149,7 @@ export default function AboutUs() {
             aria-controls="panel4-content"
             id="panel4-header"
           >
-            <Typography>Histórico de Transações</Typography>
+            <Typography sx={{fontWeight: "800"}}>Histórico de Transações</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -165,7 +168,7 @@ export default function AboutUs() {
             aria-controls="panel5-content"
             id="panel5-header"
           >
-            <Typography>Segurança</Typography>
+            <Typography sx={{fontWeight: "800"}}>Segurança</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
