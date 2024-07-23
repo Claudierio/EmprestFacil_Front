@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./homepage.module.scss";
 import Link from "next/link";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import FrequentHome from "../../components/homeFrequent"
-import HomeCard2 from "../../components/homeCard2"
+import FrequentHome from "../../components/homeFrequent";
+import HomeCard2 from "../../components/homeCard2";
 
 export default function HomePage() {
   return (
@@ -18,8 +17,12 @@ export default function HomePage() {
             A melhor plataforma de empréstimos para você
           </p>
           <div className={styles.buttons}>
-            <button className={styles.buttonSign}>Entrar</button>
-            <button className={styles.buttonregister}>Cadastre-se</button>
+            <Link href="/login">
+              <button className={styles.buttonSign}>Entrar</button>
+            </Link>
+            <Link href="/register">
+              <button className={styles.buttonregister}>Cadastre-se</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -36,8 +39,12 @@ export default function HomePage() {
             você não tem disponível não perca tempo e fale com a gente.
           </p>
           <div className={styles.buttons}>
-            <button className={styles.buttonSign}>Entrar</button>
-            <button className={styles.buttonregister}>Cadastre-se</button>
+            <Link href="/login">
+              <button className={styles.buttonSign}>Entrar</button>
+            </Link>
+            <Link href="/register">
+              <button className={styles.buttonregister}>Cadastre-se</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -8,16 +8,7 @@ import { Carousel } from "react-responsive-carousel";
 import { useMediaQuery } from "react-responsive";
 
 export default function HomeFrequent() {
-  const [isClient, setIsClient] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // Render nothing on the server
-  }
 
   return (
     <div className={styles.frequent}>
@@ -73,7 +64,7 @@ export default function HomeFrequent() {
           </Carousel>
         ) : (
           <div className={styles.cards}>
-            <div className={styles.card}>
+            <div className={styles.cardDesk}>
               <h2>Empréstimo de R$1000,00</h2>
               <ul>
                 <li>
@@ -88,7 +79,7 @@ export default function HomeFrequent() {
               </ul>
               <button>Faça já o seu</button>
             </div>
-            <div className={styles.card}>
+            <div className={styles.cardDesk}>
               <h2>Empréstimo de R$5000,00</h2>
               <ul>
                 <li>
@@ -103,7 +94,7 @@ export default function HomeFrequent() {
               </ul>
               <button>Faça já o seu</button>
             </div>
-            <div className={styles.card}>
+            <div className={styles.cardDesk}>
               <h2>Empréstimo de R$10000,00</h2>
               <ul>
                 <li>
