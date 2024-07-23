@@ -24,7 +24,7 @@ export default function AboutUs() {
       boxShadow: 'rgba(0, 0, 0, 0.3) 0px 5px 15px',
     },
   };
-
+ 
   return (
     <div className={styles.container}>
       <div className={styles.section}>

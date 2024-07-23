@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./homepage.module.scss";
 import Link from "next/link";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import FrequentHome from "../../components/homeFrequent"
+import HomeCard2 from "../../components/homeCard2"
 
 export default function HomePage() {
   return (
@@ -22,70 +24,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={styles.frequent}>
-        <div className={styles.containerfrequent}>
-          <h1 className={styles.h1}>Empréstimos mais frequentes</h1>
-          <div className={styles.cards}>
-            <div className={styles.card}>
-              <h2>Empréstimo de R$1000,00</h2>
-              <ul>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Parcelas
-                  negociáveis
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Análise rápida
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Privacidade
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> S
-                </li>
-              </ul>
-              <button>Faça já o seu</button>
-            </div>
-            <div className={styles.card}>
-              <h2>Empréstimo de R$5000,00</h2>
-              <ul>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Parcelas
-                  negociáveis
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Análise rápida
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Privacidade
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> S
-                </li>
-              </ul>
-              <button>Faça já o seu</button>
-            </div>
-            <div className={styles.card}>
-              <h2>Empréstimo de R$10000,00</h2>
-              <ul>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Parcelas
-                  negociáveis
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Análise rápida
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> Privacidade
-                </li>
-                <li>
-                  <CheckCircleIcon className={styles.icon} /> S
-                </li>
-              </ul>
-              <button>Faça já o seu</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <FrequentHome />
+      <HomeCard2 />
 
       <div className={styles.container}>
         <div className={styles.context}>
