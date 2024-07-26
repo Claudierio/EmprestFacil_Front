@@ -15,7 +15,7 @@ import Divider from "@mui/material/Divider";
 export default function AboutUs() {
   const accordionStyle = {
     backgroundColor: "#1a1a29",
-    color: "#00767c",
+    color: "#A59d92",
     marginBottom: 2,
     border: "1px solid rgba(178, 172, 162, 0.473)",
     borderRadius: "8px",
@@ -190,6 +190,7 @@ export default function AboutUs() {
           usuários a alcançar suas metas financeiras com tranquilidade.
         </p>
       </div>
+
     </div>
   );
 }

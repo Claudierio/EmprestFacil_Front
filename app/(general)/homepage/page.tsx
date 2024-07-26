@@ -27,7 +27,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      <FrequentHome />
+      <div className={styles.customBackground}>
+        <FrequentHome />
+      </div>
       <HomeCard2 />
 
       <div className={styles.container}>

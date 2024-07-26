@@ -8,7 +8,20 @@ import { Carousel } from "react-responsive-carousel";
 import { useMediaQuery } from "react-responsive";
 
 export default function HomeFrequent() {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Verifica o tamanho da tela inicialmente
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className={styles.frequent}>

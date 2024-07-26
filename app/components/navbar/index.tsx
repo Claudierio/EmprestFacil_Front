@@ -29,7 +29,7 @@ export default function Navbar() {
             <span>Quem somos</span>
           </Link>
 
-          <Link href="/emprestimo" className={`${styles.navLink} ${pathname === '/emprestimo' ? styles.active : ''}`}>
+          <Link href="/emprestimoUsuario" className={`${styles.navLink} ${pathname === '/emprestimoUsuario' ? styles.active : ''}`}>
             <AttachMoneyOutlinedIcon />
             <span>Empréstimo</span>
           </Link>
