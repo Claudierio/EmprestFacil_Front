@@ -29,21 +29,24 @@ export default function Navbar() {
             <span>Quem somos</span>
           </Link>
 
-          <Link href="/emprestimoUsuario" className={`${styles.navLink} ${pathname === '/emprestimoUsuario' ? styles.active : ''}`}>
+          <Link href="/emprestimo-usuario" className={`${styles.navLink} ${pathname === '/emprestimo-usuario' ? styles.active : ''}`}>
             <AttachMoneyOutlinedIcon />
             <span>Empréstimo</span>
           </Link>
         </div>
 
         <div className={styles.navright}>
-          <p>Nome do usuário</p>
-          <Image
+          <p>Login/</p>
+          <p>Register</p>
+
+          {/*<Image
             src={Avatar}
             alt="Avatar"
             width={45}
             height={45}
             className={styles.avatarimg}
-          />
+          />*/}
+          
         </div>
       </nav>
     </div>

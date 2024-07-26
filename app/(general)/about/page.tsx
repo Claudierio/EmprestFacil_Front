@@ -24,19 +24,14 @@ export default function AboutUs() {
       boxShadow: 'rgba(0, 0, 0, 0.3) 0px 5px 15px',
     },
   };
- 
+
   return (
     <div className={styles.container}>
       <div className={styles.section}>
         <div className={styles.text}>
           <h1>Sobre Nós</h1>
-          <p>
-            O{" "}
-            <strong>
-              A.G.I.O.T.A. (Aplicativo Gestor de Informações e Organização de
-              Transações de Adiantamentos)
-            </strong>{" "}
-            é uma ferramenta inovadora e completa para a gestão de empréstimos
+          <p> O <span className={styles.textSpan}> A.G.I.O.T.A. (Aplicativo Gestor de Informações e Organização de
+            Transações de Adiantamentos)</span> é uma ferramenta inovadora e completa para a gestão de empréstimos
             pessoais, criada com o objetivo de facilitar o controle, a
             organização e o acompanhamento das finanças dos nossos usuários. Com
             uma interface intuitiva e funcional, o aplicativo oferece diversas
@@ -72,7 +67,7 @@ export default function AboutUs() {
             aria-controls="panel1-content"
             id="panel1-header"
           >
-            <Typography sx={{fontWeight: "800"}}>Gestão de Adiantamentos</Typography>
+            <Typography sx={{ fontWeight: "800" }}>Gestão de Adiantamentos</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -107,7 +102,7 @@ export default function AboutUs() {
             aria-controls="panel2-content"
             id="panel2-header"
           >
-            <Typography sx={{fontWeight: "800"}}>Organização</Typography>
+            <Typography sx={{ fontWeight: "800" }}>Organização</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -131,7 +126,7 @@ export default function AboutUs() {
             aria-controls="panel3-content"
             id="panel3-header"
           >
-            <Typography sx={{fontWeight: "800"}}>Análises e Relatórios</Typography>
+            <Typography sx={{ fontWeight: "800" }}>Análises e Relatórios</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -149,7 +144,7 @@ export default function AboutUs() {
             aria-controls="panel4-content"
             id="panel4-header"
           >
-            <Typography sx={{fontWeight: "800"}}>Histórico de Transações</Typography>
+            <Typography sx={{ fontWeight: "800" }}>Histórico de Transações</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">
@@ -168,7 +163,7 @@ export default function AboutUs() {
             aria-controls="panel5-content"
             id="panel5-header"
           >
-            <Typography sx={{fontWeight: "800"}}>Segurança</Typography>
+            <Typography sx={{ fontWeight: "800" }}>Segurança</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography component="div">

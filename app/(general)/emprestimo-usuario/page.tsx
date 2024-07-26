@@ -4,6 +4,7 @@ import Image from "next/image";
 import HomeFrequent from "../../components/homeFrequent";
 import moneyImg from "../../../public/dollar.png";
 import avatarImag from "../../../public/user-avatar.png";
+import Link from "next/link";
 
 export default function UsuarioEmprestimo() {
   return (
@@ -24,7 +25,9 @@ export default function UsuarioEmprestimo() {
               <p>
                 Realizar empréstimo rápido e fácil, com apenas alguns clicks
               </p>
-              <button className={styles.button}>Realizar Empréstimo</button>
+              <Link href="solicitar-emprestimo">
+                <button className={styles.button}>Realizar Empréstimo</button>
+              </Link>
             </div>
           </div>
           <div className={styles.option}>
@@ -39,7 +42,9 @@ export default function UsuarioEmprestimo() {
             <div className={styles.text}>
               <h2>Avaliações dos agiotas</h2>
               <p>Exibir avaliações da lista de agiotas</p>
-              <button className={styles.button}>Buscar agiota</button>
+              <Link href="lista-agiota">
+                <button className={styles.button}>Buscar agiota</button>
+              </Link>
             </div>
           </div>
         </div>

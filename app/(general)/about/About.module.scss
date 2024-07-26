@@ -46,7 +46,7 @@
   
     & h1,
     & h2 {
-      color: #00767c;
+      color: #F8A000;
       text-align: left;
       margin-bottom: 1rem;
     }
@@ -66,13 +66,13 @@
       text-align: justify;
     }
   
-    & strong {
-      color: #00474B;
-    }
-  
     & .content {
       margin-bottom: 2rem;
     }
+  }
+
+  .textSpan{
+    color: #00767c;
   }
   
   .list {
