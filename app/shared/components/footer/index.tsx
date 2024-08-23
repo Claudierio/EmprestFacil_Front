@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
-import logoSite from "../../../public/logo_nav.png";
+import logoSite from "@/public/logo_nav.png"
 
 export default function Footer() {
   return (

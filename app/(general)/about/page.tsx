@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import styles from "./About.module.scss";
+import styles from "./about.module.scss";
 import image1 from "../../../public/bannerSite.webp";
 import image2 from "../../../public/bannersite2.webp";
 import Image from "next/image";

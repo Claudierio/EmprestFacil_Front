@@ -7,8 +7,8 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
-import { createUser, loginUser } from "../../../shared/services/api/api";
-import { useAuthContext } from "../../../shared/Auth/AuthContext";
+import { createUser, loginUser } from "../../shared/service/api/api";
+import { useAuthContext } from "../../shared/contexts/Auth/AuthContext";
 
 export default function Register() {
   const router = useRouter();

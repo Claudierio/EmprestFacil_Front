@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./homeCard2.module.scss";
 import Image from "next/image";
-import image1 from "../../../public/money1.jpg";
-import image2 from "../../../public/money2.jpg";
+import image1 from "@/public/money1.jpg";
+import image2 from "@/public/money2.jpg";
 
 export default function homecard() {
   return (

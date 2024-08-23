@@ -5,7 +5,7 @@ import styles from "../formStyles.module.scss";
 import Link from "next/link";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { api } from "../../../shared/services/api/api";
+import { api } from "../../shared/service/api/api";
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
