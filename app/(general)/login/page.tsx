@@ -7,13 +7,14 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { api } from "../../shared/service/api/api";
 import { useRouter } from 'next/navigation';
+import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-
+  const { setUser, setToken } = useAuthContext();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError('');
@@ -25,9 +26,8 @@ export default function Login() {
       });
 
       const usuario = response.data;
-
-      localStorage.setItem('usuario', JSON.stringify(usuario));
-
+      setUser(usuario);
+      setToken(usuario.token);
       router.push('/homepage');
 
     } catch (error) {
