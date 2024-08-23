@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./homepage.module.scss";
 import Link from "next/link";
-import FrequentHome from "../../components/homeFrequent";
+import FrequentHome from "@/app/components/homeFrequent";
 import HomeCard2 from "../../components/homeCard2";
 
 export default function HomePage() {
