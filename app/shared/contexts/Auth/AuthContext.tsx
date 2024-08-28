@@ -1,19 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { IAuthContextData, IUserData } from "@/app/shared/@types/auth";
 
-interface IUserData {
-    nome: string;
-    email: string;
-    senha: string;
-}
-
-interface IAuthContextData {
-    user: IUserData | null;
-    token: string | null;
-    setUser: (user: IUserData | null) => void;
-    setToken: (token: string | null) => void;
-}
 
 const AuthContext = createContext({} as IAuthContextData);
 
