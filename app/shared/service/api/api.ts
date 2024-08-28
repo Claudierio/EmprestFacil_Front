@@ -1,28 +1,13 @@
-import axios from 'axios';
+import axios from "axios";
+import { IUserData, ILoginData } from "@/app/shared/@types/auth";
+
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:8081/api',
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8081/api",
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
-
-export { api };
-
-interface IUserData {
-  nome: string;
-  email: string;
-  senha: string;
-  confirmarSenha: string;
-  dataNascimento: string;
-
-}
-
-interface ILoginData {
-  email: string;
-  senha: string;
-}
-
 
 export const createUser = async (userData: IUserData) => {
   try {
@@ -36,10 +21,18 @@ export const createUser = async (userData: IUserData) => {
   }
 };
 
-
 export const loginUser = async (userData: ILoginData) => {
   try {
     const response = await api.post(`/login`, userData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const listUser = async () => {
+  try {
+    const response = await api.get('/usuarios');
     return response.data;
   } catch (error) {
     throw error;
