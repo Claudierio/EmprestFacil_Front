@@ -43,7 +43,6 @@ export default function Register() {
         nome: formData.name,
         email: formData.email,
         senha: formData.password,
-        confirmarSenha: formData.password,
         dataNascimento: formData.birthdate,
       });
       const loginData = await loginUser({ email: newUser.email, senha: formData.password });

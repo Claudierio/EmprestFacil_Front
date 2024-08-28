@@ -1,3 +1,4 @@
+// login.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -5,7 +6,7 @@ import styles from "../formStyles.module.scss";
 import Link from "next/link";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { api } from "../../shared/service/api/api";
+import { api } from "../../shared/service/api/api"; // Import corrigido
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
 
@@ -15,6 +16,7 @@ export default function Login() {
   const [error, setError] = useState('');
   const router = useRouter();
   const { setUser, setToken } = useAuthContext();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError('');
@@ -29,7 +31,6 @@ export default function Login() {
       setUser(usuario);
       setToken(usuario.token);
       router.push('/homepage');
-
     } catch (error) {
       setError('Credenciais inválidas. Tente novamente.');
     }
