@@ -1,8 +1,9 @@
 export interface IUserData {
+    id: any;
     nome: string;
     email: string;
     senha: string;
-    dataNascimento?: string; // Opcional se não for usado em todos os contextos
+    dataNascimento?: string; 
 }
 
 export interface ILoginData {
@@ -13,6 +14,7 @@ export interface ILoginData {
 export interface IAuthContextData {
     user: IUserData | null;
     token: string | null;
-    setUser: (user: IUserData | null) => void;
-    setToken: (token: string | null) => void;
+    setUser: (newUser: IUserData | null) => void;
+    setToken: (newToken: string | null) => void;
+    logout: () => void;  
 }

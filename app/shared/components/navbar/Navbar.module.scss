@@ -35,6 +35,7 @@
   text-wrap: nowrap;
   gap: 8px;
   cursor: pointer;
+
   svg {
     height: 24px;
     width: 24px;
@@ -42,7 +43,7 @@
 }
 
 .navLink.active {
-  color: #00767c; 
+  color: #00767c;
   font-weight: bold;
 }
 
@@ -95,19 +96,98 @@
 }
 
 @media (max-width: 414px) {
-    .toplevel {
-        padding: 5%;
-      }
-    .navLink {
-        padding: 8px 8px;
-    }
+  .toplevel {
+    padding: 5%;
   }
 
-  @media (max-width: 375px) {
-    .toplevel {
-        padding: 5%;
-      }
-    .navLink {
-        gap: 0px;
-    }
+  .navLink {
+    padding: 8px 8px;
   }
+}
+
+@media (max-width: 375px) {
+  .toplevel {
+    padding: 5%;
+  }
+
+  .navLink {
+    gap: 0px;
+  }
+}
+
+.userMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.userName {
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #F8A000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1000;
+  width: 100px;
+  margin-top: 5px;
+}
+
+.dropdownItem {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #013B2F;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownItem:hover {
+  background-color: #cecece;
+  border-radius: 4px;
+
+}
+
+.dropdown a {
+  display: block;
+  padding: 8px 16px;
+  margin: 0;
+  cursor: pointer;
+  color: #013B2F;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  border-radius: 4px;
+
+  background-color: #cecece;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.buttonSign,
+.buttonregister {
+  padding: 10px 20px;
+  border: none;
+  background-color: #00767c;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonSign:hover,
+.buttonregister:hover {
+  background-color: #005f66;
+}
