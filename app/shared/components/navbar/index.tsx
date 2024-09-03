@@ -26,9 +26,8 @@ export default function Navbar() {
         <div className={styles.navleft}>
           <Link
             href="/"
-            className={`${styles.navLink} ${
-              pathname === "/" ? styles.active : ""
-            }`}
+            className={`${styles.navLink} ${pathname === "/" ? styles.active : ""
+              }`}
           >
             <HomeIcon />
             <span>Início</span>
@@ -36,9 +35,8 @@ export default function Navbar() {
 
           <Link
             href="/about"
-            className={`${styles.navLink} ${
-              pathname === "/about" ? styles.active : ""
-            }`}
+            className={`${styles.navLink} ${pathname === "/about" ? styles.active : ""
+              }`}
           >
             <PersonOutlineOutlinedIcon />
             <span>Quem somos</span>
@@ -46,9 +44,8 @@ export default function Navbar() {
 
           <Link
             href="/emprestimo-usuario"
-            className={`${styles.navLink} ${
-              pathname === "/emprestimo-usuario" ? styles.active : ""
-            }`}
+            className={`${styles.navLink} ${pathname === "/emprestimo-usuario" ? styles.active : ""
+              }`}
           >
             <AttachMoneyOutlinedIcon />
             <span>Empréstimo</span>
