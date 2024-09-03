@@ -2,6 +2,9 @@
     padding: 20px;
     background-color: var(--background2);
     color: #fff;
+    min-height: 65vh;/* Garante que o container ocupe toda a altura da tela */
+    flex-direction: column;
+    justify-content: center;/* Centraliza o conteúdo verticalmente */
 }
 
 .title {
@@ -14,6 +17,7 @@
 .tableContainer {
     display: flex;
     justify-content: center;
+    flex-grow: 1;/* Faz com que a tabela ocupe o espaço restante */
     max-height: 450px;
     overflow-y: auto;/* Permite rolar verticalmente */ 
     overflow-x: hidden; /* Evita rolagem horizontal */
