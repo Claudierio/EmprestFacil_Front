@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./Navbar.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -11,7 +13,16 @@ import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { user } = useAuthContext();
+  const { user, logout } = useAuthContext();
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div className={styles.toplevel}>
@@ -26,9 +37,7 @@ export default function Navbar() {
         <div className={styles.navleft}>
           <Link
             href="/"
-            className={`${styles.navLink} ${
-              pathname === "/" ? styles.active : ""
-            }`}
+            className={`${styles.navLink} ${pathname === "/" ? styles.active : ""}`}
           >
             <HomeIcon />
             <span>Início</span>
@@ -36,9 +45,7 @@ export default function Navbar() {
 
           <Link
             href="/about"
-            className={`${styles.navLink} ${
-              pathname === "/about" ? styles.active : ""
-            }`}
+            className={`${styles.navLink} ${pathname === "/about" ? styles.active : ""}`}
           >
             <PersonOutlineOutlinedIcon />
             <span>Quem somos</span>
@@ -46,9 +53,7 @@ export default function Navbar() {
 
           <Link
             href="/emprestimo-usuario"
-            className={`${styles.navLink} ${
-              pathname === "/emprestimo-usuario" ? styles.active : ""
-            }`}
+            className={`${styles.navLink} ${pathname === "/emprestimo-usuario" ? styles.active : ""}`}
           >
             <AttachMoneyOutlinedIcon />
             <span>Empréstimo</span>
@@ -57,12 +62,35 @@ export default function Navbar() {
 
         <div className={styles.navright}>
           {user ? (
-            <p>Olá, {user.nome}</p>
+            <div className={styles.userMenu}>
+              <p onClick={toggleDropdown} className={styles.userName}>
+                Olá, {user.nome}
+              </p>
+              {dropdownVisible && (
+                <div className={styles.dropdown}>
+                  <Link href="/profile">
+                    <div className={styles.dropdownItem}>
+                      <p>Perfil</p>
+                    </div>
+                  </Link>
+                  <div className={styles.dropdownItem} onClick={handleLogout}>
+                    <p>Sair</p>
+                  </div>
+                </div>
+
+
+
+              )}
+            </div>
           ) : (
-            <>
-              <p>Login/</p>
-              <p>Register</p>
-            </>
+            <div className={styles.buttons}>
+              <Link href="/login">
+                <button className={styles.buttonSign}>Entrar</button>
+              </Link>
+              <Link href="/register">
+                <button className={styles.buttonregister}>Cadastre-se</button>
+              </Link>
+            </div>
           )}
         </div>
       </nav>
