@@ -7,8 +7,9 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
-import { createUser, loginUser } from "../../shared/service/api/api";
 import { useAuthContext } from "../../shared/contexts/Auth/AuthContext";
+import { createUser, loginUser } from "@/app/shared/service/api/Auth/authApi";
+import { Email } from "@mui/icons-material";
 
 export default function Register() {
   const router = useRouter();
@@ -19,6 +20,7 @@ export default function Register() {
     email: '',
     password: '',
     confirmPassword: '',
+    role: 'CLIENTE',
   });
   const [error, setError] = useState('');
 
@@ -44,11 +46,12 @@ export default function Register() {
         email: formData.email,
         senha: formData.password,
         dataNascimento: formData.birthdate,
+        role: 'CLIENTE',
       });
       const loginData = await loginUser({ email: newUser.email, senha: formData.password });
 
-      setUser(loginData.user);
-      setToken(loginData.token);
+      setUser(loginData);
+
 
       router.push("/homepage");
     } catch (error: any) {

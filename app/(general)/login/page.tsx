@@ -6,9 +6,9 @@ import styles from "../formStyles.module.scss";
 import Link from "next/link";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { api } from "../../shared/service/api/api"; // Import corrigido
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
+import { loginUser } from "@/app/shared/service/api/Auth/authApi";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -22,10 +22,10 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await api.post('/login', {
+      const response = await loginUser({
         email,
-        senha
-      });
+        senha,
+      })
 
       const usuario = response.data;
       setUser(usuario);
