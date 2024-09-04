@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Navbar.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -16,12 +16,31 @@ export default function Navbar() {
   const { user, logout } = useAuthContext();
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
   const handleLogout = () => {
     logout();
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+  const handleProfileClick = () => {
+    setDropdownVisible(false);
   };
 
   return (
@@ -67,8 +86,8 @@ export default function Navbar() {
                 Olá, {user.nome}
               </p>
               {dropdownVisible && (
-                <div className={styles.dropdown}>
-                  <Link href="/profile">
+                <div ref={dropdownRef} className={styles.dropdown}>
+                  <Link href="/profile" onClick={handleProfileClick}>
                     <div className={styles.dropdownItem}>
                       <p>Perfil</p>
                     </div>
@@ -77,9 +96,6 @@ export default function Navbar() {
                     <p>Sair</p>
                   </div>
                 </div>
-
-
-
               )}
             </div>
           ) : (
