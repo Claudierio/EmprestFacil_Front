@@ -1,18 +1,5 @@
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8081/api",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
-interface IUserData {
-  nome: string;
-  email: string;
-  senha: string;
-  dataNascimento: string;
-}
+import { ILoginData, IUserData } from "@/app/shared/@types/auth";
+import { api } from "../api";
 
 export const createUser = async (userData: IUserData) => {
   try {
@@ -23,7 +10,7 @@ export const createUser = async (userData: IUserData) => {
   }
 };
 
-export const loginUser = async (userData: IUserData) => {
+export const loginUser = async (userData: ILoginData) => {
   try {
     const response = await api.post(`/login`, userData);
     return response.data;
@@ -32,7 +19,7 @@ export const loginUser = async (userData: IUserData) => {
   }
 };
 
-export const listUser = async (userData: IUserData) => {
+export const listUser = async () => {
   try {
     const response = await api.get('/usuarios');
     return response.data;
@@ -40,3 +27,13 @@ export const listUser = async (userData: IUserData) => {
     throw error;
   }
 };
+
+export const listAgiotas = async () => {
+  try {
+    const response = await api.get('/agiotas');
+    return response.data; 
+  } catch (error) {
+    throw error;
+  }
+};
+
