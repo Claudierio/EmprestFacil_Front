@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { listAgiotas } from "../../shared/service/api/api";
+import { listAgiotas } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./listaAgiota.module.scss";
 
 interface Agiota {

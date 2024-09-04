@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./listaUsuario.module.scss";
-import { listUser } from "../../shared/service/api/api"; 
+import { listUser } from "@/app/shared/service/api/Auth/authApi";
+
 
 interface Usuario {
   nome: string;

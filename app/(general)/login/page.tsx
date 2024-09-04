@@ -1,4 +1,3 @@
-// login.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -9,6 +8,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
 import { loginUser } from "@/app/shared/service/api/Auth/authApi";
+
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -22,14 +22,12 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await loginUser({
+      const usuario = await loginUser({
         email,
         senha,
       })
 
-      const usuario = response.data;
       setUser(usuario);
-      setToken(usuario.token);
       router.push('/homepage');
     } catch (error) {
       setError('Credenciais inválidas. Tente novamente.');
