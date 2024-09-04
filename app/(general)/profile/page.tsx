@@ -15,6 +15,7 @@ export default function EditProfile() {
     const [email, setEmail] = useState(user?.email || '');
     const [senha, setSenha] = useState('');
     const [dataNascimento, setDataNascimento] = useState(user?.dataNascimento || '');
+    const [role, setRole] = useState(user?.role || 'CLIENTE');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
@@ -33,7 +34,8 @@ export default function EditProfile() {
                 nome,
                 email,
                 senha: senha || undefined,
-                dataNascimento, // Incluindo data de nascimento na atualização
+                dataNascimento,
+                role
             });
 
             const updatedUser = response.data;
@@ -95,6 +97,21 @@ export default function EditProfile() {
                                     required
                                 />
                                 <CalendarTodayOutlinedIcon className={styles.icon} />
+                            </div>
+                        </div>
+                        <div className={styles.formGroup}>
+                            <div className={styles.inputWrapper}>
+                                <select
+                                    id="role"
+                                    name="role"
+                                    className={styles.input}
+                                    value={role}
+                                    onChange={(e) => setRole(e.target.value as "CLIENTE" | "AGIOTA")}
+                                    required
+                                >
+                                    <option value="CLIENTE">Cliente</option>
+                                    <option value="AGIOTA">Agiota</option>
+                                </select>
                             </div>
                         </div>
                         <div className={styles.formGroup}>

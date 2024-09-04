@@ -1,11 +1,11 @@
-export interface IUserData {
+interface IUserData {
     id: any;
     nome: string;
     email: string;
     senha: string;
-    dataNascimento?: string; 
-}
-
+    dataNascimento: string;
+    role: "CLIENTE" | "AGIOTA"; 
+  }
 export interface ILoginData {
     email: string;
     senha: string;
