@@ -6,8 +6,7 @@ import { listUser } from "../../shared/service/api/api";
 
 interface Usuario {
   nome: string;
-  valor: string;
-  status: string;
+  email: string;
 }
 
 export default function ListaUsuarios() {
@@ -37,8 +36,7 @@ export default function ListaUsuarios() {
           <thead>
             <tr>
               <th className={styles.tableHeader}>Usuário</th>
-              <th className={styles.tableHeader}>Valor do Empréstimo</th>
-              <th className={styles.tableHeader}>Status</th>
+              <th className={styles.tableHeader}>E-mail</th>
             </tr>
           </thead>
           <tbody>
@@ -46,13 +44,12 @@ export default function ListaUsuarios() {
               usuarios.map((usuario, index) => (
                 <tr key={index} className={styles.tableRow}>
                   <td className={styles.tableCell}>{usuario.nome}</td>
-                  <td className={styles.tableCell}>{usuario.valor}</td>
-                  <td className={styles.tableCell}>{usuario.status}</td>
+                  <td className={styles.tableCell}>{usuario.email}</td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={3} className={styles.tableCell}>
+                <td colSpan={2} className={styles.tableCell}>
                   Nenhum usuário encontrado.
                 </td>
               </tr>
@@ -63,3 +60,4 @@ export default function ListaUsuarios() {
     </div>
   );
 }
+

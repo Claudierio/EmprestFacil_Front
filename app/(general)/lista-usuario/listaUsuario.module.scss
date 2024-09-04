@@ -2,9 +2,7 @@
     padding: 20px;
     background-color: var(--background2);
     color: #fff;
-    min-height: 65vh;
-    /* Garante que o container ocupe toda a altura da tela */
-    display: flex;
+    min-height: 65vh;/* Garante que o container ocupe toda a altura da tela */
     flex-direction: column;
     justify-content: center;
     /* Centraliza o conteúdo verticalmente */
@@ -16,16 +14,19 @@
     color: #f8a000;
 }
 
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .tableContainer {
     display: flex;
     justify-content: center;
-    flex-grow: 1;
-    /* Faz com que a tabela ocupe o espaço restante */
+    flex-grow: 1;/* Faz com que a tabela ocupe o espaço restante */
     max-height: 450px;
-    overflow-y: auto;
-    /* Permite rolar verticalmente */
-    overflow-x: hidden;
-    /* Evita rolagem horizontal */
+    overflow-y: auto;/* Permite rolar verticalmente */
+    overflow-x: hidden;/* Evita rolagem horizontal */
 }
 
 .table {
@@ -37,6 +38,7 @@
     overflow: hidden;
     margin-bottom: 0;/* Remove espaçamento inferior */
 
+    /* Remove o espaçamento do conteúdo */
     &Header,
     &Cell {
         padding: 15px;
@@ -47,10 +49,14 @@
     &Header {
         background-color: #126856;
         color: #f5c400;
-        position: -webkit-sticky;/* Para compatibilidade com navegadores baseados em WebKit */
-        position: sticky;/* Fixa o cabeçalho */
-        top: 0;/* Fixa o cabeçalho no topo da tabela */
-        z-index: 2;/* Garante que o cabeçalho fique acima das outras linhas */
+        position: -webkit-sticky;
+        /* Para compatibilidade com navegadores baseados em WebKit */
+        position: sticky;
+        /* Fixa o cabeçalho */
+        top: 0;
+        /* Fixa o cabeçalho no topo da tabela */
+        z-index: 2;
+        /* Garante que o cabeçalho fique acima das outras linhas */
     }
 
     &Row {
