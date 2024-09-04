@@ -2,6 +2,9 @@
     padding: 20px;
     background-color: var(--background2);
     color: #fff;
+    min-height: 65vh;/* Garante que o container ocupe toda a altura da tela */
+    flex-direction: column;
+    justify-content: center;/* Centraliza o conteúdo verticalmente */
 }
 
 .title {
@@ -14,6 +17,7 @@
 .tableContainer {
     display: flex;
     justify-content: center;
+    flex-grow: 1;/* Faz com que a tabela ocupe o espaço restante */
     max-height: 450px;
     overflow-y: auto;/* Permite rolar verticalmente */ 
     overflow-x: hidden; /* Evita rolagem horizontal */
@@ -30,14 +34,14 @@
     margin-bottom: 0;/* Remove espaçamento inferior */
 
     /* Remove o espaçamento do conteúdo */
-    &__header,
-    &__cell {
+    &Header,
+    &Cell {
         padding: 15px;
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
 
-    &__header {
+    &Header {
         background-color: #126856;
         color: #f5c400;
         position: -webkit-sticky;/* Para compatibilidade com navegadores baseados em WebKit */
@@ -46,7 +50,7 @@
         z-index: 2;/* Garante que o cabeçalho fique acima das outras linhas */
     }
 
-    &__row {
+    &Row {
 
         /* Adiciona um pouco de espaçamento para visualização */
         &:hover {
@@ -54,7 +58,7 @@
         }
     }
 
-    &__cell {
+    &Cell {
         color: #f5c400;
     }
 }

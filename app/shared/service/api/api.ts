@@ -38,3 +38,14 @@ export const listUser = async () => {
     throw error;
   }
 };
+
+
+export const listAgiotas = async () => {
+  try {
+    const response = await api.get('/agiotas');
+    return response.data; 
+  } catch (error) {
+    throw error;
+  }
+};
+

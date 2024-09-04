@@ -1,47 +1,68 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useState } from "react";
+import { listAgiotas } from "../../shared/service/api/api";
 import styles from "./listaAgiota.module.scss";
 
-export default function listaAgiota() {
-  // Dados de exemplo dos usuários, taxas de juros e avaliações
-  const usuarios = [
-    { nome: "João Silva", taxa: "2.5%", avaliacao: 4.5 },
-    { nome: "Maria Oliveira", taxa: "3.1%", avaliacao: 4.7 },
-    { nome: "Carlos Souza", taxa: "1.9%", avaliacao: 4.3 },
-    { nome: "Ana Pereira", taxa: "2.8%", avaliacao: 4.6 },
-    { nome: "João Silva", taxa: "2.5%", avaliacao: 4.5 },
-    { nome: "Maria Oliveira", taxa: "3.1%", avaliacao: 4.7 },
-    { nome: "Carlos Souza", taxa: "1.9%", avaliacao: 4.3 },
-    { nome: "Ana Pereira", taxa: "2.8%", avaliacao: 4.6 },
-    { nome: "João Silva", taxa: "2.5%", avaliacao: 4.5 },
-    { nome: "Maria Oliveira", taxa: "3.1%", avaliacao: 4.7 },
-    { nome: "Carlos Souza", taxa: "1.9%", avaliacao: 4.3 },
-    { nome: "Ana Pereira", taxa: "2.8%", avaliacao: 4.6 },
-  ];
+interface Agiota {
+  id: number;
+  nome: string;
+  taxa: string;
+  avaliacao: number;
+}
+
+export default function ListaAgiota() {
+  const [agiotas, setAgiotas] = useState<Agiota[]>([]);
+  const [erro, setErro] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchAgiotas = async () => {
+      try {
+        const response = await listAgiotas();
+        setAgiotas(response); // Atualiza a lista de agiotas com a resposta do backend
+      } catch (error) {
+        console.error("Erro ao carregar agiotas:", error);
+        setErro("Não foi possível carregar a lista de agiotas.");
+      }
+    };
+
+    fetchAgiotas();
+  }, []);
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Lista de Agiotas com taxa e avaliações</h1>
+      <h1 className={styles.title}>Lista de Agiotas com Taxa e Avaliações</h1>
+      {erro && <p className={styles.error}>{erro}</p>}
       <div className={styles.tableContainer}>
         <table className={styles.table}>
           <thead>
             <tr>
-              <th className={styles.table__header}>Agiota</th>
-              <th className={styles.table__header}>Taxa de Juros</th>
-              <th className={styles.table__header}>avaliações</th>
+              <th className={styles.tableHeader}>Agiota</th>
+              <th className={styles.tableHeader}>Taxa de Juros</th>
+              <th className={styles.tableHeader}>Avaliações</th>
             </tr>
           </thead>
           <tbody>
-            {usuarios.map((usuario, index) => (
-              <tr key={index} className={styles.table__row}>
-                <td className={styles.table__cell}>{usuario.nome}</td>
-                <td className={styles.table__cell}>{usuario.taxa}</td>
-                <td className={styles.table__cell}>{usuario.avaliacao} / 5.0</td>
+            {agiotas.length > 0 ? (
+              agiotas.map((agiota) => (
+                <tr key={agiota.id} className={styles.tableRow}>
+                  <td className={styles.tableCell}>{agiota.nome}</td>
+                  <td className={styles.tableCell}>{agiota.taxa}</td>
+                  <td className={styles.tableCell}>{agiota.avaliacao} / 5.0</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={3} className={styles.tableCell}>
+                  Nenhum agiota encontrado.
+                </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
     </div>
   );
 }
+
 
