@@ -5,7 +5,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import { AuthProvider } from "./shared/contexts/Auth/AuthContext";
-
+import AuthStatus from "./shared/components/authStatus";
+import SessionProviderWrapper from "./shared/components/sessionProviderWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,17 +18,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <AuthProvider>
-          <ClientLayout>
-            {children}
-          </ClientLayout>
-        </AuthProvider>
-      </body>
-    </html>
+    <SessionProviderWrapper>
+      <html lang="en">
+        <body className={inter.className}>
+          <AuthProvider>
+            <AuthStatus />
+            <ClientLayout>{children}</ClientLayout>
+          </AuthProvider>
+        </body>
+      </html>
+    </SessionProviderWrapper>
   );
 }

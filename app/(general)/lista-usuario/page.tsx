@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./listaUsuario.module.scss";
-import { listUser } from "@/app/shared/service/api/Auth/authApi";
+import { listUser } from "@/app/shared/service/api/auth/authApi";
 
 
 interface Usuario {
