@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import KeycloakProvider from "next-auth/providers/keycloak";
 import {jwtDecode} from "jwt-decode";
 import { encrypt } from "../../../../utils/encryption";
-
+ 
 // this will refresh an expired access token, when needed
 async function refreshAccessToken(token) {
     const resp = await fetch(`${process.env.REFRESH_TOKEN_URL}`, {

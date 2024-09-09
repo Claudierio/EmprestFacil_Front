@@ -30,8 +30,7 @@ export default function AboutUs() {
       <div className={styles.section}>
         <div className={styles.text}>
           <h1>Sobre Nós</h1>
-          <p> O <span className={styles.textSpan}> A.G.I.O.T.A. (Aplicativo Gestor de Informações e Organização de
-            Transações de Adiantamentos)</span> é uma ferramenta inovadora e completa para a gestão de empréstimos
+          <p> O <span className={styles.textSpan}> EmprestFácil</span> é uma ferramenta inovadora e completa para a gestão de empréstimos
             pessoais, criada com o objetivo de facilitar o controle, a
             organização e o acompanhamento das finanças dos nossos usuários. Com
             uma interface intuitiva e funcional, o aplicativo oferece diversas
