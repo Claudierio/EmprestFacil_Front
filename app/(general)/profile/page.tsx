@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import styles from "../formStyles.module.scss";
+import React, { useState } from "react"; 
+import styles from "./profile.module.scss";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";

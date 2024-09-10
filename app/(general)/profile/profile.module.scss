@@ -16,12 +16,6 @@
     background-color: #191C2F;
 }
 
-.rightSide {
-    flex: 1;
-    background-image: url('../../public/wallpaper.webp');
-    background-size: cover;
-    background-position: center;
-}
 
 .loginBox {
     padding: 2rem;
@@ -35,6 +29,10 @@
 
 .inputWrapper {
     position: relative;
+}
+
+.inputWrapper select{
+    width: 114%;
 }
 
 .input {
@@ -54,7 +52,6 @@
     border-radius: 10px;
     color: white;
     appearance: none;
-    /* Remove a seta padrão do select */
 }
 
 .selectWrapper {
@@ -64,7 +61,7 @@
 .input:focus {
     outline: none;
     border-color: #00474B;
-    /* Cor da borda quando o input está focado */
+
 }
 
 .icon {
@@ -73,7 +70,6 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    /* Para que o ícone não interfira na interação do usuário com o input */
     font-size: 20px;
 }
 
@@ -84,7 +80,6 @@
     color: white;
     border: none;
     border-radius: 15px;
-    /* Mais arredondado */
     cursor: pointer;
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -103,7 +98,7 @@
 @media (max-width: 768px) {
     .container {
         height: 100vh;
-        /* Garante que o container ocupe a altura total da viewport */
+
     }
 
     .rightSide {
@@ -122,5 +117,9 @@
 
     .loginButton {
         width: 108%;
+    }
+
+    .inputWrapper select{
+        width: 105.5%;
     }
 }
