@@ -17,7 +17,7 @@
     "cryptr": "^6.3.0",
     "jwt-decode": "^4.0.0",
     "keycloak-js": "^25.0.4",
-    "next": "14.2.5",
+    "next": "^14.2.5",
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",

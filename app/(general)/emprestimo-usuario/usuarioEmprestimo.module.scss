@@ -1,50 +1,81 @@
+/* Nível superior da página */
 .topLevel {
   background-color: var(--background2);
+  padding: 20px;
 }
 
+/* Container para o conteúdo dos usuários */
 .containerUser {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
+  width: 100%;
 }
 
-.container {
+/* Container das opções agora terá um layout flexível horizontal */
+.sideMenu {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* Permite que as opções quebrem linha em telas menores */
+  justify-content: space-between;
+  /* Adiciona espaço entre as opções */
   gap: 20px;
-  width: 80%;
+  /* Espaço entre as seções */
   max-width: 1200px;
+  width: 100%;
 }
 
+/* Cada opção (solicitar empréstimo, avaliações, listar usuários) */
 .option {
   display: flex;
   align-items: center;
   padding: 20px;
+  background-color: #1e1e1e;
+  /* Fundo escuro para destaque */
+  border-radius: 10px;
+  width: calc(33% - 20px);
+  /* Dividir igualmente as opções */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  min-width: 550px;
+  /* Largura mínima */
 }
 
+.option:hover {
+  transform: scale(1.02);
+}
+
+/* Estilo dos ícones das opções */
 .icon {
   margin-right: 20px;
-
 }
 
+.icon img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilo do texto nas opções */
 .text {
   color: #fff;
+  flex: 1;
 }
 
 .text h2 {
   color: #F8A000;
   font-size: 24px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .text p {
   color: #fff;
   font-size: 18px;
-  margin-bottom: 25px;
-  width: 280px;
+  margin-bottom: 20px;
+  max-width: 300px;
 }
 
+/* Estilo dos botões */
 .button {
   background-color: #F5C400;
   border: none;
@@ -55,44 +86,41 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  min-width: 200px;
+  /* Garantir tamanho uniforme */
+  text-align: center;
 }
 
 .button:hover {
   background-color: #d4a300;
 }
 
-.frequentContainer {
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: var(--background2);
-}
-
+/* Estilos responsivos para telas menores */
 @media (max-width: 768px) {
-  .option {
+
+  /* Flex para organizar as opções de forma vertical em telas pequenas */
+  .sideMenu {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
-  .icon {
-    margin: 0 0 20px 0;
-  }
-
-  .text p {
+  .option {
     width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .containerUser {
-    padding: 20px 0;
+    /* Ocupa 100% da largura disponível em telas menores */
   }
 
+  /* Garantir que os botões ocupem 100% da largura em telas pequenas */
   .button {
     width: 100%;
     padding: 15px;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Reduzir o padding em dispositivos muito pequenos */
+  .containerUser {
+    padding: 20px 0;
   }
 }

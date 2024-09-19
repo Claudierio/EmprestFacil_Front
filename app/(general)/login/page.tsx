@@ -7,7 +7,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useRouter } from 'next/navigation';
 import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
-import { loginUser } from "@/app/shared/service/api/auth/authApi";
+import { loginUser } from "@/app/shared/service/api/Auth/authApi";
 
 
 export default function Login() {
