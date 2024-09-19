@@ -1,0 +1,44 @@
+/* sucesso.module.scss */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #003d40;
+    /* Um verde suave no fundo */
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #f8a000;
+    /* Verde para o título */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.message {
+    font-size: 1.25rem;
+    color: #e4c5c5;
+    /* Cor neutra para o texto */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #f8a000;
+    /* Verde para o botão */
+    color: whit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #218838;
+    /* Escurecer o verde ao passar o mouse */
+}

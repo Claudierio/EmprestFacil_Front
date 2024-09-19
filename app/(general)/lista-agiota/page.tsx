@@ -1,25 +1,26 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { listAgiotas } from "@/app/shared/service/api/auth/authApi";
+import { listAgiotas } from "@/app/shared/service/api/Auth/authApi"; // Corrige o nome da função de busca
 import styles from "./listaAgiota.module.scss";
 
 interface Agiota {
   id: number;
   nome: string;
-  taxa: string;
+  taxaJuros: number;
   avaliacao: number;
 }
 
 export default function ListaAgiota() {
   const [agiotas, setAgiotas] = useState<Agiota[]>([]);
   const [erro, setErro] = useState<string | null>(null);
+  const [filtro, setFiltro] = useState<string>("");
 
   useEffect(() => {
     const fetchAgiotas = async () => {
       try {
-        const response = await listAgiotas();
-        setAgiotas(response); // Atualiza a lista de agiotas com a resposta do backend
+        const response = await listAgiotas(); // Atualiza a lista de agiotas com a resposta do backend
+        setAgiotas(response);
       } catch (error) {
         console.error("Erro ao carregar agiotas:", error);
         setErro("Não foi possível carregar a lista de agiotas.");
@@ -29,10 +30,25 @@ export default function ListaAgiota() {
     fetchAgiotas();
   }, []);
 
+  const agiotasFiltrados = agiotas.filter((agiota) =>
+    agiota.nome.toLowerCase().includes(filtro.toLowerCase())
+  ); // Atualiza o nome da variável para refletir que estamos filtrando agiotas
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Lista de Agiotas com Taxa e Avaliações</h1>
+      
       {erro && <p className={styles.error}>{erro}</p>}
+
+      {/* Barra de pesquisa */}
+      <input
+        type="text"
+        className={styles.searchBar}
+        placeholder="Pesquisar por nome..."
+        value={filtro}
+        onChange={(e) => setFiltro(e.target.value)}
+      />
+
       <div className={styles.tableContainer}>
         <table className={styles.table}>
           <thead>
@@ -43,11 +59,11 @@ export default function ListaAgiota() {
             </tr>
           </thead>
           <tbody>
-            {agiotas.length > 0 ? (
-              agiotas.map((agiota) => (
+            {agiotasFiltrados.length > 0 ? ( // Usa a variável filtrada
+              agiotasFiltrados.map((agiota) => (
                 <tr key={agiota.id} className={styles.tableRow}>
                   <td className={styles.tableCell}>{agiota.nome}</td>
-                  <td className={styles.tableCell}>{agiota.taxa}</td>
+                  <td className={styles.tableCell}>{agiota.taxaJuros.toFixed(2)}%</td> {/* Formata a taxa de juros */}
                   <td className={styles.tableCell}>{agiota.avaliacao} / 5.0</td>
                 </tr>
               ))

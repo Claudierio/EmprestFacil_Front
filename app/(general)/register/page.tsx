@@ -8,7 +8,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import { useAuthContext } from "../../shared/contexts/Auth/AuthContext";
-import { createUser, loginUser } from "@/app/shared/service/api/auth/authApi";
+import { createUser, loginUser } from "@/app/shared/service/api/Auth/authApi";
 import { Email } from "@mui/icons-material";
 
 export default function Register() {
