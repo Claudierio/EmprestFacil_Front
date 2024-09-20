@@ -2,10 +2,9 @@
     padding: 20px;
     background-color: var(--background2);
     color: #fff;
-    min-height: 65vh;/* Garante que o container ocupe toda a altura da tela */
+    min-height: 65vh;
     flex-direction: column;
     justify-content: center;
-    /* Centraliza o conteúdo verticalmente */
 }
 
 .title {
@@ -23,16 +22,16 @@
 .tableContainer {
     display: flex;
     justify-content: center;
-    flex-grow: 1;/* Faz com que a tabela ocupe o espaço restante */
+    flex-grow: 1;
     max-height: 450px;
-    overflow-y: auto;/* Permite rolar verticalmente */
-    overflow-x: hidden;/* Evita rolagem horizontal */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .searchBar {
     display: block;
     width: 100%;
-    max-width: 400px;
+    max-width: 30%;
     margin: 0 auto 20px auto;
     padding: 10px;
     font-size: 1rem;
@@ -54,9 +53,8 @@
     background-color: #042c25;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 0;/* Remove espaçamento inferior */
+    margin-bottom: 0;
 
-    /* Remove o espaçamento do conteúdo */
     &Header,
     &Cell {
         padding: 15px;
@@ -68,18 +66,13 @@
         background-color: #126856;
         color: #f5c400;
         position: -webkit-sticky;
-        /* Para compatibilidade com navegadores baseados em WebKit */
         position: sticky;
-        /* Fixa o cabeçalho */
         top: 0;
-        /* Fixa o cabeçalho no topo da tabela */
         z-index: 2;
-        /* Garante que o cabeçalho fique acima das outras linhas */
     }
 
     &Row {
 
-        /* Adiciona um pouco de espaçamento para visualização */
         &:hover {
             background-color: #013b2f;
         }
@@ -93,5 +86,9 @@
 @media (max-width: 768px) {
     .table {
         width: 100%;
+    }
+
+    .searchBar {
+        max-width: 85%;
     }
 }

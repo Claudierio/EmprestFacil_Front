@@ -1,10 +1,8 @@
-/* Nível superior da página */
 .topLevel {
   background-color: var(--background2);
   padding: 20px;
 }
 
-/* Container para o conteúdo dos usuários */
 .containerUser {
   display: flex;
   flex-direction: column;
@@ -13,40 +11,32 @@
   width: 100%;
 }
 
-/* Container das opções agora terá um layout flexível horizontal */
 .sideMenu {
   display: flex;
   flex-wrap: wrap;
-  /* Permite que as opções quebrem linha em telas menores */
   justify-content: space-between;
-  /* Adiciona espaço entre as opções */
   gap: 20px;
-  /* Espaço entre as seções */
   max-width: 1200px;
   width: 100%;
 }
 
-/* Cada opção (solicitar empréstimo, avaliações, listar usuários) */
 .option {
   display: flex;
   align-items: center;
   padding: 20px;
   background-color: #1e1e1e;
-  /* Fundo escuro para destaque */
   border-radius: 10px;
   width: calc(33% - 20px);
-  /* Dividir igualmente as opções */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-  min-width: 550px;
-  /* Largura mínima */
+  min-width: 530px;
 }
 
 .option:hover {
   transform: scale(1.02);
 }
 
-/* Estilo dos ícones das opções */
+
 .icon {
   margin-right: 20px;
 }
@@ -56,7 +46,6 @@
   height: auto;
 }
 
-/* Estilo do texto nas opções */
 .text {
   color: #fff;
   flex: 1;
@@ -75,7 +64,6 @@
   max-width: 300px;
 }
 
-/* Estilo dos botões */
 .button {
   background-color: #F5C400;
   border: none;
@@ -87,7 +75,6 @@
   cursor: pointer;
   transition: background-color 0.3s;
   min-width: 200px;
-  /* Garantir tamanho uniforme */
   text-align: center;
 }
 
@@ -95,21 +82,21 @@
   background-color: #d4a300;
 }
 
-/* Estilos responsivos para telas menores */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
-  /* Flex para organizar as opções de forma vertical em telas pequenas */
   .sideMenu {
     flex-direction: column;
     align-items: center;
+    
   }
 
   .option {
-    width: 100%;
-    /* Ocupa 100% da largura disponível em telas menores */
+    width: 85%;
+    min-width: 250px;
+    border-width: 1%;
+
   }
 
-  /* Garantir que os botões ocupem 100% da largura em telas pequenas */
   .button {
     width: 100%;
     padding: 15px;
@@ -118,9 +105,20 @@
 }
 
 @media (max-width: 480px) {
-
-  /* Reduzir o padding em dispositivos muito pequenos */
   .containerUser {
     padding: 20px 0;
+  }
+
+  .text h2 {
+    font-size: 20px;
+  }
+
+  .text p {
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
   }
 }

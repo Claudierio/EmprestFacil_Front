@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { listAgiotas } from "@/app/shared/service/api/Auth/authApi"; // Corrige o nome da função de busca
+import { listAgiotas } from "@/app/shared/service/api/Auth/authApi"; 
 import styles from "./listaAgiota.module.scss";
 
 interface Agiota {
@@ -19,7 +19,7 @@ export default function ListaAgiota() {
   useEffect(() => {
     const fetchAgiotas = async () => {
       try {
-        const response = await listAgiotas(); // Atualiza a lista de agiotas com a resposta do backend
+        const response = await listAgiotas(); 
         setAgiotas(response);
       } catch (error) {
         console.error("Erro ao carregar agiotas:", error);
@@ -32,7 +32,7 @@ export default function ListaAgiota() {
 
   const agiotasFiltrados = agiotas.filter((agiota) =>
     agiota.nome.toLowerCase().includes(filtro.toLowerCase())
-  ); // Atualiza o nome da variável para refletir que estamos filtrando agiotas
+  ); 
 
   return (
     <div className={styles.container}>

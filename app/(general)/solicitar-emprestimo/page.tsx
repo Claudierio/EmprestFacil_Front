@@ -5,9 +5,8 @@ import { useRouter } from "next/navigation";
 import { createEmprestimo, listAgiotas } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./solicitaEmprestimo.module.scss";
 
-// Definindo o tipo de Agiota
 interface Agiota {
-  id: string; // Certifique-se de que o tipo de id seja string
+  id: string; 
   nome: string;
   taxaJuros: number;
 }
@@ -42,7 +41,6 @@ const SolicitarEmprestimo = () => {
     const parcelas = parseInt(formData.parcelas, 10);
     const agiota = agiotas.find((a) => a.id === formData.agiotaSelecionado);
 
-    // Verificação se os campos estão preenchidos corretamente
     if (isNaN(valorEmprestado) || isNaN(parcelas) || !agiota) {
       setError("Preencha todos os campos corretamente.");
       return false;
@@ -59,10 +57,6 @@ const SolicitarEmprestimo = () => {
       const valorEmprestado = parseFloat(formData.valorEmprestado);
       const parcelas = parseInt(formData.parcelas, 10);
 
-      console.log("Lista de agiotas:", agiotas);  // Verifica se a lista está correta
-      console.log("Agiota selecionado:", formData.agiotaSelecionado);  // Verifica o valor selecionado
-
-      // Certifique-se de comparar corretamente os IDs
       const agiota = agiotas.find((a) => String(a.id) === String(formData.agiotaSelecionado));
 
       if (!agiota) {
@@ -70,15 +64,13 @@ const SolicitarEmprestimo = () => {
       }
 
       const taxaJuros = agiota.taxaJuros;
-      const idAgiota = agiota.id; // Pegando o ID do agiota
-      console.log("Agiota encontrado:", agiota);  // Verifica o agiota encontrado
+      const idAgiota = agiota.id; 
 
-      // Faz o envio do empréstimo
       await createEmprestimo({
         valorEmprestado,
         parcelas,
         taxaJuros,
-        idAgiota,  // Incluindo o ID do agiota no envio
+        idAgiota,  
       });
 
       router.push("/sucesso");
