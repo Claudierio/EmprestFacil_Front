@@ -45,15 +45,12 @@ export const createEmprestimo = async (userData: {
   idAgiota: string;  // Adicionando o idAgiota
 }) => {
   try {
-    // Pegar a data atual para dataEmprestimo
     const dataAtual = new Date();
     // const dataEmprestimo = dataAtual.toISOString().split('T')[0]; // Converter para formato YYYY-MM-DD
 
-    // Calcular a data de vencimento adicionando o número de meses baseado nas parcelas
     const dataVencimentoObj = new Date(dataAtual.setMonth(dataAtual.getMonth() + userData.parcelas));
     const dataVencimento = dataVencimentoObj.toISOString().split('T')[0]; // Formato YYYY-MM-DD
 
-    // Preparar os dados para o envio ao backend
     const emprestimoData = {
       valor: userData.valorEmprestado,
       parcelas: userData.parcelas,
@@ -62,7 +59,6 @@ export const createEmprestimo = async (userData: {
       dataVencimento
     };
 
-    // Enviar ao backend
     console.log("Enviando dados: ", emprestimoData); 
     const response = await api.post('/emprestimos', emprestimoData);
     return response.data;
