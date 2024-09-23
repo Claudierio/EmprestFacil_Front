@@ -6,7 +6,7 @@ import { createEmprestimo, listAgiotas } from "@/app/shared/service/api/Auth/aut
 import styles from "./solicitaEmprestimo.module.scss";
 
 interface Agiota {
-  id: string; 
+  id: string;  
   nome: string;
   taxaJuros: number;
 }
@@ -129,7 +129,7 @@ const SolicitarEmprestimo = () => {
             name="agiotaSelecionado"
             value={formData.agiotaSelecionado}
             onChange={handleChange}
-            className={styles.input}
+            className={styles.select}
             required
           >
             <option value="" disabled>Selecione um agiota</option>

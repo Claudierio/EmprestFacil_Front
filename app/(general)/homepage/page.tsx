@@ -31,6 +31,13 @@ export default function HomePage() {
               </Link>
             </div>
           )}
+          {user && (
+            <div className={styles.buttons}>
+              <Link href="/emprestimo-usuario">
+                <button className={styles.buttonSign}>Empréstimos</button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
@@ -39,15 +46,15 @@ export default function HomePage() {
       </div>
       <HomeCard2 />
 
-      <div className={styles.container}>
-        <div className={styles.context}>
-          <h1 className={styles.h1}>Não perca tempo! Faça já seu cadastro</h1>
-          <p className={styles.textContainer4}>
-            Situações inesperadas, como problemas de saúde, reparos de
-            emergência em casa ou no carro, podem exigir dinheiro imediato que
-            você não tem disponível não perca tempo e fale com a gente.
-          </p>
-          {!user && (
+      {!user && (
+        <div className={styles.container}>
+          <div className={styles.context}>
+            <h1 className={styles.h1}>Não perca tempo! Faça já seu cadastro</h1>
+            <p className={styles.textContainer4}>
+              Situações inesperadas, como problemas de saúde, reparos de
+              emergência em casa ou no carro, podem exigir dinheiro imediato que
+              você não tem disponível não perca tempo e fale com a gente.
+            </p>
             <div className={styles.buttons}>
               <Link href="/login">
                 <button className={styles.buttonSign}>Entrar</button>
@@ -56,9 +63,9 @@ export default function HomePage() {
                 <button className={styles.buttonregister}>Cadastre-se</button>
               </Link>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { listUser } from "@/app/shared/service/api/Auth/authApi";
 interface Usuario {
   nome: string;
   email: string;
-}
+} 
 
 export default function ListaUsuarios() {
   const [usuarios, setUsuarios] = useState<Usuario[]>([]);
@@ -38,7 +38,6 @@ export default function ListaUsuarios() {
 
       {erro && <p className={styles.error}>{erro}</p>}
 
-      {/* Barra de pesquisa */}
       <input
         type="text"
         className={styles.searchBar}

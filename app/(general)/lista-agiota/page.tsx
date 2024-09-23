@@ -8,7 +8,7 @@ interface Agiota {
   id: number;
   nome: string;
   taxaJuros: number;
-  avaliacao: number;
+  avaliacao: number; 
 }
 
 export default function ListaAgiota() {
