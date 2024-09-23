@@ -98,7 +98,6 @@
 @media (max-width: 768px) {
     .container {
         height: 100vh;
-
     }
 
     .rightSide {
@@ -120,6 +119,12 @@
     }
 
     .inputWrapper select{
-        width: 105.5%;
+        width: 108%;
+    }
+}
+
+@media (max-width: 425px) {
+    .inputWrapper select{
+        width: 109%;
     }
 }

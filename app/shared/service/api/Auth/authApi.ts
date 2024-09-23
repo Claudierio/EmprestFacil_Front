@@ -10,7 +10,7 @@ export const createUser = async (userData: IUserData) => {
     throw error;
   }
 };
-
+ 
 export const loginUser = async (userData: ILoginData) => {
   try {
     const response = await api.post(`/login`, userData);
@@ -23,6 +23,15 @@ export const loginUser = async (userData: ILoginData) => {
 export const listUser = async () => {
   try {
     const response = await api.get('/usuarios');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateUser = async (userId: number, updatedData: IUserData) => {
+  try {
+    const response = await api.put(`/usuarios/${userId}`, updatedData);
     return response.data;
   } catch (error) {
     throw error;
@@ -66,4 +75,3 @@ export const createEmprestimo = async (userData: {
     throw error;
   }
 };
-
