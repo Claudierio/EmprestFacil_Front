@@ -38,10 +38,38 @@ export const updateUser = async (userId: number, updatedData: IUserData) => {
   }
 };
 
+export const deleteUser = async (userId: number) => {
+  try {
+    const response = await api.delete(`/usuarios/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 export const listAgiotas = async () => {
   try {
     const response = await api.get('/agiotas');
     return response.data; 
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateAgiota = async (agiotaId: number, updatedData: { nome: string; taxaJuros: number }) => {
+  try {
+    const response = await api.put(`/agiotas/${agiotaId}`, updatedData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteAgiota = async (agiotaId: number) => {
+  try {
+    const response = await api.delete(`/agiotas/${agiotaId}`);
+    return response.data;
   } catch (error) {
     throw error;
   }
