@@ -1,62 +1,64 @@
 .toplevel {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #042C25;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #042C25;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
 }
 
 .leftcontent,
 .rightcontent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-    color: #fff;
-    max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  color: #fff;
+  max-width: 550px; 
 }
 
 .img {
-    width: 400px;
-    height: 250px;
-    border-radius: 10px;
+  width: 450px; 
+  height: 300px; 
+  border-radius: 10px;
 }
 
 .h3 {
-    margin-top: 30px;
-    margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 28px; 
 }
 
 .paragraph {
-    text-align: left;
-    color: #A59d92;
+  text-align: left;
+  color: #A59d92;
+  font-size: 18px; 
 }
 
 @media (max-width: 768px) {
-    .container {
-      flex-direction: column; 
-      align-items: center; 
-    }
-  
-    .leftcontent,
-    .rightcontent {
-      max-width: 100%; /* Alarga o conteúdo para preencher a tela */
-      padding: 10px; 
-    }
-  
-    .img {
-      width: 100%; 
-      height: auto; /* Mantém a proporção da imagem */
-    }
+  .container {
+    flex-direction: column; 
+    align-items: center; 
   }
+
+  .leftcontent,
+  .rightcontent {
+    max-width: 100%; 
+    padding: 10px; 
+  }
+
+  .img {
+    width: 100%; 
+    height: auto; 
+  }
+}

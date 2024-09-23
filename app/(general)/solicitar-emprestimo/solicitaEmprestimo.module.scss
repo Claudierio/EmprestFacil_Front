@@ -61,7 +61,7 @@
 }
 
 .select {
-    width: 104.6%;
+    width: 104.4%;
 }
 
 
@@ -98,6 +98,7 @@
     .button {
         font-size: 16px;
         padding: 10px;
+        width: 107.5%;
     }
 }
 
@@ -128,5 +129,11 @@
     .button {
         font-size: 14px;
         padding: 10px;
+    }
+}
+
+@media (max-width: 425px) {
+    .button{
+        width: 107.5%;
     }
 }
