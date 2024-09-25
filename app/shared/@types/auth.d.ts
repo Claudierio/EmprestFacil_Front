@@ -22,6 +22,7 @@ export interface IAuthContextData {
 export interface IAgiota {
     id: number;
     nome: string;
+    taxaJuros: number;
   }
 
   export interface IAgiotaEmprestimo {
@@ -41,4 +42,5 @@ export interface IAgiota {
     parcelas: number;
     agiota: Agiota | null;
     usuario: Usuario | null;
+
   }

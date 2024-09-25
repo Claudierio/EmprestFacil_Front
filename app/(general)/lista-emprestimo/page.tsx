@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { listEmprestimos } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./listaEmprestimo.module.scss";
 import { IEmprestimo } from "@/app/shared/@types/auth";
+
 export default function ListaEmprestimos() {
   const [emprestimos, setEmprestimos] = useState<IEmprestimo[]>([]);
   const [erro, setErro] = useState<string | null>(null);
   const [filtro, setFiltro] = useState<string>("");
+
   useEffect(() => {
     const fetchEmprestimos = async () => {
       try {
@@ -19,6 +21,7 @@ export default function ListaEmprestimos() {
     };
     fetchEmprestimos();
   }, []);
+
   const emprestimosFiltrados = emprestimos.filter((emprestimo) => {
     const agiotaNome = emprestimo.agiota?.nome || "";
     const usuarioNome = emprestimo.usuario?.nome || "";
@@ -27,6 +30,7 @@ export default function ListaEmprestimos() {
       usuarioNome.toLowerCase().includes(filtro.toLowerCase())
     );
   });
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Lista de Empréstimos</h1>
@@ -46,30 +50,44 @@ export default function ListaEmprestimos() {
               <th className={styles.tableHeader}>Usuário</th>
               <th className={styles.tableHeader}>Valor</th>
               <th className={styles.tableHeader}>Parcelas</th>
+              <th className={styles.tableHeader}>Valor Total</th> {/* Nova coluna */}
             </tr>
           </thead>
           <tbody>
             {emprestimosFiltrados.length > 0 ? (
-              emprestimosFiltrados.map((emprestimo) => (
-                <tr key={emprestimo.id} className={styles.tableRow}>
-                  <td className={styles.tableCell}>
-                    {emprestimo.agiota?.nome || "Desconhecido"}
-                  </td>
-                  <td className={styles.tableCell}>
-                    {emprestimo.usuario?.nome || "Desconhecido"}
-                  </td>
-                  <td className={styles.tableCell}>
-                    {emprestimo.valor.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
-                  </td>
-                  <td className={styles.tableCell}>{emprestimo.parcelas}</td>
-                </tr>
-              ))
+              emprestimosFiltrados.map((emprestimo) => {
+                // Calcular o valor total (valor + juros)
+                const valorTotal =
+                  emprestimo.valor +
+                  emprestimo.valor * (emprestimo.agiota?.taxaJuros / 100);
+
+                return (
+                  <tr key={emprestimo.id} className={styles.tableRow}>
+                    <td className={styles.tableCell}>
+                      {emprestimo.agiota?.nome || "Desconhecido"}
+                    </td>
+                    <td className={styles.tableCell}>
+                      {emprestimo.usuario?.nome || "Desconhecido"}
+                    </td>
+                    <td className={styles.tableCell}>
+                      {emprestimo.valor.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </td>
+                    <td className={styles.tableCell}>{emprestimo.parcelas}</td>
+                    <td className={styles.tableCell}>
+                      {valorTotal.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
               <tr>
-                <td colSpan={4} className={styles.tableCell}>
+                <td colSpan={5} className={styles.tableCell}>
                   Nenhum empréstimo encontrado.
                 </td>
               </tr>

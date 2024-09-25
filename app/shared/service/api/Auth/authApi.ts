@@ -80,7 +80,7 @@ export const createEmprestimo = async (userData: {
   parcelas: number;
   taxaJuros: number;
   idAgiota: string; 
-  idUsuario: number;
+  idUsuario: number; 
 }) => {
   try {
     const dataAtual = new Date();
