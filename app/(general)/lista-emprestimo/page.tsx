@@ -1,15 +1,12 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { listEmprestimos } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./listaEmprestimo.module.scss";
 import { IEmprestimo } from "@/app/shared/@types/auth";
-
 export default function ListaEmprestimos() {
   const [emprestimos, setEmprestimos] = useState<IEmprestimo[]>([]);
   const [erro, setErro] = useState<string | null>(null);
   const [filtro, setFiltro] = useState<string>("");
-
   useEffect(() => {
     const fetchEmprestimos = async () => {
       try {
@@ -20,26 +17,20 @@ export default function ListaEmprestimos() {
         setErro("Não foi possível carregar a lista de empréstimos.");
       }
     };
-
     fetchEmprestimos();
   }, []);
-
   const emprestimosFiltrados = emprestimos.filter((emprestimo) => {
     const agiotaNome = emprestimo.agiota?.nome || "";
     const usuarioNome = emprestimo.usuario?.nome || "";
-
     return (
       agiotaNome.toLowerCase().includes(filtro.toLowerCase()) ||
       usuarioNome.toLowerCase().includes(filtro.toLowerCase())
     );
   });
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Lista de Empréstimos</h1>
-
       {erro && <p className={styles.error}>{erro}</p>}
-
       <input
         type="text"
         className={styles.searchBar}
@@ -47,7 +38,6 @@ export default function ListaEmprestimos() {
         value={filtro}
         onChange={(e) => setFiltro(e.target.value)}
       />
-
       <div className={styles.tableContainer}>
         <table className={styles.table}>
           <thead>

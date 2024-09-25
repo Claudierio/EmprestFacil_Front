@@ -4,12 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createEmprestimo, listAgiotas } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./solicitaEmprestimo.module.scss";
-
-interface Agiota {
-  id: string;  
-  nome: string;
-  taxaJuros: number;
-}
+import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
+import { IAgiotaEmprestimo } from "@/app/shared/@types/auth";
 
 const SolicitarEmprestimo = () => {
   const [formData, setFormData] = useState({
@@ -17,15 +13,16 @@ const SolicitarEmprestimo = () => {
     parcelas: "",
     agiotaSelecionado: "",
   });
-  const [agiotas, setAgiotas] = useState<Agiota[]>([]);
+  const [agiotas, setAgiotas] = useState<IAgiotaEmprestimo[]>([]);
   const [error, setError] = useState("");
+  const {user} = useAuthContext();
   const router = useRouter();
 
   // Carrega a lista de agiotas
   useEffect(() => {
     const fetchAgiotas = async () => {
       try {
-        const agiotasData: Agiota[] = await listAgiotas();
+        const agiotasData: IAgiotaEmprestimo[] = await listAgiotas();
         setAgiotas(agiotasData);
       } catch (error) {
         console.error("Erro ao buscar agiotas:", error);
@@ -65,14 +62,22 @@ const SolicitarEmprestimo = () => {
 
       const taxaJuros = agiota.taxaJuros;
       const idAgiota = agiota.id; 
+      
+      if (!user || typeof user.id !== 'number') {
+        setError("Usuário não está autenticado ou o ID é inválido.");
+        return;
+      }
+
+      const idUsuario = user.id;
+      
 
       await createEmprestimo({
         valorEmprestado,
         parcelas,
         taxaJuros,
-        idAgiota,  
+        idAgiota, 
+        idUsuario,
       });
-
       router.push("/sucesso");
     } catch (error: any) {
       setError(error.message || "Erro ao solicitar empréstimo.");

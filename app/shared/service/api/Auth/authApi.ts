@@ -79,20 +79,23 @@ export const createEmprestimo = async (userData: {
   valorEmprestado: number;
   parcelas: number;
   taxaJuros: number;
-  idAgiota: string;  // Adicionando o idAgiota
+  idAgiota: string; 
+  idUsuario: number;
 }) => {
   try {
     const dataAtual = new Date();
-    // const dataEmprestimo = dataAtual.toISOString().split('T')[0]; // Converter para formato YYYY-MM-DD
 
     const dataVencimentoObj = new Date(dataAtual.setMonth(dataAtual.getMonth() + userData.parcelas));
     const dataVencimento = dataVencimentoObj.toISOString().split('T')[0]; // Formato YYYY-MM-DD
-
+    const dataEmprestimo = dataAtual.toISOString().split('T')[0]; 
     const emprestimoData = {
-      valor: userData.valorEmprestado,
+      dataEmprestimo,
+      valorEmprestado: userData.valorEmprestado,
       parcelas: userData.parcelas,
       taxaJuros: userData.taxaJuros,
-      agiota_id: userData.idAgiota,  // Incluindo o ID do agiota
+      agiota: userData.idAgiota,  
+      usuario: userData.idUsuario,  
+
       dataVencimento
     };
 

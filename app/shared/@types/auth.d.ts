@@ -19,10 +19,15 @@ export interface IAuthContextData {
     logout: () => void;  
 }
 
-
 export interface IAgiota {
     id: number;
     nome: string;
+  }
+
+  export interface IAgiotaEmprestimo {
+    id: string;  
+    nome: string;
+    taxaJuros: number;
   }
   
   export interface IUsuario {
