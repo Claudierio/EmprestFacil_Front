@@ -36,7 +36,7 @@ export default function HomeFrequent() {
             useKeyboardArrows
           >
             <div className={styles.card}>
-              <h2>Empréstimo de R$1000,00</h2>
+              <h2>Empréstimo de R$1.000,00</h2>
               <ul>
                 <li>
                   <CheckCircleIcon className={styles.icon} /> Parcelas
@@ -54,7 +54,7 @@ export default function HomeFrequent() {
               </Link>
             </div>
             <div className={styles.card}>
-              <h2>Empréstimo de R$5000,00</h2>
+              <h2>Empréstimo de R$5.000,00</h2>
               <ul>
                 <li>
                   <CheckCircleIcon className={styles.icon} /> Parcelas
@@ -72,7 +72,7 @@ export default function HomeFrequent() {
               </Link>
             </div>
             <div className={styles.card}>
-              <h2>Empréstimo de R$10000,00</h2>
+              <h2>Empréstimo de R$10.000,00</h2>
               <ul>
                 <li>
                   <CheckCircleIcon className={styles.icon} /> Parcelas
@@ -93,7 +93,7 @@ export default function HomeFrequent() {
         ) : (
           <div className={styles.cards}>
             <div className={styles.cardDesk}>
-              <h2>Empréstimo de R$1000,00</h2>
+              <h2>Empréstimo de R$1.000,00</h2>
               <ul>
                 <li>
                   <CheckCircleIcon className={styles.icon} /> Parcelas
@@ -111,7 +111,7 @@ export default function HomeFrequent() {
               </Link>
             </div>
             <div className={styles.cardDesk}>
-              <h2>Empréstimo de R$5000,00</h2>
+              <h2>Empréstimo de R$5.000,00</h2>
               <ul>
                 <li>
                   <CheckCircleIcon className={styles.icon} /> Parcelas
@@ -129,7 +129,7 @@ export default function HomeFrequent() {
               </Link>
             </div>
             <div className={styles.cardDesk}>
-              <h2>Empréstimo de R$10000,00</h2>
+              <h2>Empréstimo de R$10.000,00</h2>
               <ul>
                 <li>
                   <CheckCircleIcon className={styles.icon} /> Parcelas

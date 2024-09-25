@@ -103,3 +103,13 @@ export const createEmprestimo = async (userData: {
     throw error;
   }
 };
+
+export const listEmprestimos = async () => {
+  try {
+    const response = await api.get('/emprestimos');
+    return response.data; 
+  } catch (error) {
+    throw error;
+  }
+};
+

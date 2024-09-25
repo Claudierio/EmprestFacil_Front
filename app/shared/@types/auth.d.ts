@@ -18,3 +18,22 @@ export interface IAuthContextData {
     setToken: (newToken: string | null) => void;
     logout: () => void;  
 }
+
+
+export interface IAgiota {
+    id: number;
+    nome: string;
+  }
+  
+  export interface IUsuario {
+    id: number;
+    nome: string;
+  }
+  
+  export interface IEmprestimo {
+    id: number;
+    valor: number;
+    parcelas: number;
+    agiota: Agiota | null;
+    usuario: Usuario | null;
+  }

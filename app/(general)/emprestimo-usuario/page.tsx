@@ -4,15 +4,15 @@ import Image from "next/image";
 import HomeFrequent from "../../shared/components/homeFrequent";
 import moneyImg from "../../../public/dollar.png";
 import avatarImag from "../../../public/user-avatar.png";
+import listEmprestimos from "../../../public/money-list.png";
 import Link from "next/link";
-import listImg from "@/public/user1.png"
+import listImg from "@/public/user1.png";
 
 export default function UsuarioEmprestimo() {
   return (
     <div className={styles.topLevel}>
       <div className={styles.containerUser}>
         <div className={styles.sideMenu}>
-          
           {/* Seção de Solicitar Empréstimo */}
           <div className={styles.option}>
             <div className={styles.icon}>
@@ -25,9 +25,30 @@ export default function UsuarioEmprestimo() {
             </div>
             <div className={styles.text}>
               <h2>Solicitar empréstimo</h2>
-              <p>Realizar empréstimo rápido e fácil, com apenas alguns clicks</p>
+              <p>
+                Realizar empréstimo rápido e fácil, com apenas alguns clicks
+              </p>
               <Link href="solicitar-emprestimo">
                 <button className={styles.button}>Realizar Empréstimo</button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Seção de Listagem de emprestimos */}
+          <div className={styles.option}>
+            <div className={styles.icon}>
+              <Image
+                src={listEmprestimos}
+                alt="Listagem de Emprestimos"
+                width={230}
+                height={172}
+              />
+            </div>
+            <div className={styles.text}>
+              <h2>Listagem de Emprestimos</h2>
+              <p>Visualizar todos os emprestimos cadastrados no sistema</p>
+              <Link href="lista-emprestimo">
+                <button className={styles.button}>Ver Lista de Emprestimos</button>
               </Link>
             </div>
           </div>
@@ -43,10 +64,10 @@ export default function UsuarioEmprestimo() {
               />
             </div>
             <div className={styles.text}>
-              <h2>Avaliações dos agiotas</h2>
-              <p>Exibir avaliações da lista de agiotas</p>
+              <h2>Listagem de Agiotas</h2>
+              <p>Visualizar todos os agiotas cadastrados no sistema</p>
               <Link href="lista-agiota">
-                <button className={styles.button}>Buscar agiota</button>
+                <button className={styles.button}>Ver Lista de Agiotas</button>
               </Link>
             </div>
           </div>
