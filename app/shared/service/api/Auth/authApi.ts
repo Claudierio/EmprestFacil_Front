@@ -57,7 +57,7 @@ export const listAgiotas = async () => {
   }
 };
 
-export const updateAgiota = async (agiotaId: number, updatedData: { nome: string; taxaJuros: number }) => {
+export const updateAgiota = async (agiotaId: number, updatedData: { nome: string; taxaJuros: number, email: string }) => {
   try {
     const response = await api.put(`/agiotas/${agiotaId}`, updatedData);
     return response.data;
