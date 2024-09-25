@@ -7,7 +7,7 @@ interface IUserData {
     role: "CLIENTE" | "AGIOTA"; 
   }
 export interface ILoginData {
-    email: string;
+    email: string; 
     senha: string;
 }
 
@@ -42,5 +42,6 @@ export interface IAgiota {
     parcelas: number;
     agiota: Agiota | null;
     usuario: Usuario | null;
-
+    dataEmprestimo: string;   
+    dataVencimento: string;
   }

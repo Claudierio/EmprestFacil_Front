@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 import { listEmprestimos } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./listaEmprestimo.module.scss";
 import { IEmprestimo } from "@/app/shared/@types/auth";
+import NotaFiscalModal from "@/app/shared/components/notaFiscal/NotaFiscalModal"; // Import do modal
 
 export default function ListaEmprestimos() {
   const [emprestimos, setEmprestimos] = useState<IEmprestimo[]>([]);
   const [erro, setErro] = useState<string | null>(null);
   const [filtro, setFiltro] = useState<string>("");
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [selectedEmprestimo, setSelectedEmprestimo] = useState<IEmprestimo | null>(null);
 
   useEffect(() => {
     const fetchEmprestimos = async () => {
@@ -21,6 +24,16 @@ export default function ListaEmprestimos() {
     };
     fetchEmprestimos();
   }, []);
+
+  const openModal = (emprestimo: IEmprestimo) => {
+    setSelectedEmprestimo(emprestimo);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedEmprestimo(null);
+  };
 
   const emprestimosFiltrados = emprestimos.filter((emprestimo) => {
     const agiotaNome = emprestimo.agiota?.nome || "";
@@ -50,19 +63,22 @@ export default function ListaEmprestimos() {
               <th className={styles.tableHeader}>Usuário</th>
               <th className={styles.tableHeader}>Valor</th>
               <th className={styles.tableHeader}>Parcelas</th>
-              <th className={styles.tableHeader}>Valor Total</th> {/* Nova coluna */}
+              <th className={styles.tableHeader}>Valor Total</th>
             </tr>
           </thead>
           <tbody>
             {emprestimosFiltrados.length > 0 ? (
               emprestimosFiltrados.map((emprestimo) => {
-                // Calcular o valor total (valor + juros)
                 const valorTotal =
                   emprestimo.valor +
                   emprestimo.valor * (emprestimo.agiota?.taxaJuros / 100);
 
                 return (
-                  <tr key={emprestimo.id} className={styles.tableRow}>
+                  <tr
+                    key={emprestimo.id}
+                    className={styles.tableRow}
+                    onClick={() => openModal(emprestimo)} // Adicionar o click para abrir o modal
+                  >
                     <td className={styles.tableCell}>
                       {emprestimo.agiota?.nome || "Desconhecido"}
                     </td>
@@ -95,6 +111,12 @@ export default function ListaEmprestimos() {
           </tbody>
         </table>
       </div>
+
+      <NotaFiscalModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        emprestimo={selectedEmprestimo}
+      />
     </div>
   );
 }

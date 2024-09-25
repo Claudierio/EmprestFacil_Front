@@ -84,19 +84,23 @@ export const createEmprestimo = async (userData: {
 }) => {
   try {
     const dataAtual = new Date();
-
-    const dataVencimentoObj = new Date(dataAtual.setMonth(dataAtual.getMonth() + userData.parcelas));
+    
+    const dataEmprestimo = new Date(
+      dataAtual.getTime() - (dataAtual.getTimezoneOffset() * 60000)
+    ).toISOString().split('T')[0];
+    
+    const dataVencimentoObj = new Date(dataAtual);
+    dataVencimentoObj.setMonth(dataVencimentoObj.getMonth() + userData.parcelas);
     const dataVencimento = dataVencimentoObj.toISOString().split('T')[0]; // Formato YYYY-MM-DD
-    const dataEmprestimo = dataAtual.toISOString().split('T')[0]; 
+
     const emprestimoData = {
-      dataEmprestimo,
+      dataEmprestimo, 
       valorEmprestado: userData.valorEmprestado,
       parcelas: userData.parcelas,
       taxaJuros: userData.taxaJuros,
       agiota: userData.idAgiota,  
       usuario: userData.idUsuario,  
-
-      dataVencimento
+      dataVencimento 
     };
 
     console.log("Enviando dados: ", emprestimoData); 
@@ -106,6 +110,8 @@ export const createEmprestimo = async (userData: {
     throw error;
   }
 };
+
+
 
 export const listEmprestimos = async () => {
   try {
