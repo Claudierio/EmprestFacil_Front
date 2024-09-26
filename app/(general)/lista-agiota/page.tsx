@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { listAgiotas, deleteAgiota } from "@/app/shared/service/api/Auth/authApi"; 
-import DeleteIcon from '@mui/icons-material/Delete'; 
+import { listAgiotas, deleteAgiota } from "@/app/shared/service/api/Auth/authApi";
+import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import styles from "./listaAgiota.module.scss";
 import EditAgiotaModal from '@/app/shared/components/EditEmprestadorModal/EditAgiotaModal';
@@ -12,7 +12,7 @@ interface Agiota {
   id: number;
   nome: string;
   taxaJuros: number;
-  avaliacao: number; 
+  avaliacao: number;
   email: string;
 }
 
@@ -25,7 +25,7 @@ export default function ListaAgiota() {
   useEffect(() => {
     const fetchAgiotas = async () => {
       try {
-        const response = await listAgiotas(); 
+        const response = await listAgiotas();
         setAgiotas(response);
       } catch (error) {
         console.error("Erro ao carregar agiotas:", error);
@@ -73,7 +73,7 @@ export default function ListaAgiota() {
               <th className={styles.tableHeader}>Agiota</th>
               <th className={styles.tableHeader}>Taxa de Juros</th>
               <th className={styles.tableHeader}>Avaliações</th>
-              <th className={styles.tableHeader}>Ações</th> 
+              <th className={styles.tableHeader}>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +84,7 @@ export default function ListaAgiota() {
                   <td className={styles.tableCell}>{agiota.taxaJuros.toFixed(2)}%</td>
                   <td className={styles.tableCell}>{agiota.avaliacao} / 5.0</td>
                   <td className={styles.tableCell}>
-                  <EditAgiotaModal
+                    <EditAgiotaModal
                       agiotaId={agiota.id}
                       agiotaNome={agiota.nome}
                       agiotaTaxa={agiota.taxaJuros}
@@ -92,7 +92,7 @@ export default function ListaAgiota() {
                       onUpdate={() => {
                       }}
                     />
-                  <DeleteIcon
+                    <DeleteIcon
                       onClick={() => setAgiotaParaDeletar(agiota.id)}
                       style={{ cursor: "pointer", color: "#d9534f", marginLeft: "10px" }}
                     />

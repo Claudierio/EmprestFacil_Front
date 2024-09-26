@@ -7,50 +7,49 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
-import { updateUser } from "@/app/shared/service/api/Auth/authApi"; 
+import { updateUser } from "@/app/shared/service/api/Auth/authApi";
 import { IUserData } from "@/app/shared/@types/auth";
 
 export default function EditProfile() {
-  const { user, setUser } = useAuthContext();
-  const [nome, setNome] = useState(user?.nome || '');
-  const [email, setEmail] = useState(user?.email || '');
-  const [senha, setSenha] = useState('');
-  const [dataNascimento, setDataNascimento] = useState(user?.dataNascimento || '');
-  const [role, setRole] = useState(user?.role || 'CLIENTE');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+    const { user, setUser } = useAuthContext();
+    const [nome, setNome] = useState(user?.nome || '');
+    const [email, setEmail] = useState(user?.email || '');
+    const [senha, setSenha] = useState('');
+    const [dataNascimento, setDataNascimento] = useState(user?.dataNascimento || '');
+    const [role, setRole] = useState(user?.role);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setError('');
-    setSuccess('');
-  
-    if (!user) {
-      setError('Usuário não autenticado.');
-      return;
-    }
-  
-    try {
-      // Cria o objeto sem a senha por padrão
-      const updatedData: Partial<IUserData> = {
-        nome,
-        email,
-        dataNascimento,
-        role
-      };
-  
-      if (senha) {
-        updatedData.senha = senha;
-      }
-  
-      const updatedUser = await updateUser(user.id!, updatedData as IUserData); // Faz o cast para IUserData
-  
-      setUser(updatedUser);
-      setSuccess('Perfil atualizado com sucesso!');
-    } catch (error) {
-      setError('Erro ao atualizar o perfil. Tente novamente.');
-    }
-  };
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setError('');
+        setSuccess('');
+
+        if (!user) {
+            setError('Usuário não autenticado.');
+            return;
+        }
+
+        try {
+            const updatedData: Partial<IUserData> = {
+                nome,
+                email,
+                dataNascimento,
+                role
+            };
+
+            if (senha) {
+                updatedData.senha = senha;
+            }
+
+            const updatedUser = await updateUser(user.id!, updatedData as IUserData); // Faz o cast para IUserData
+
+            setUser(updatedUser);
+            setSuccess('Perfil atualizado com sucesso!');
+        } catch (error) {
+            setError('Erro ao atualizar o perfil. Tente novamente.');
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -103,7 +102,7 @@ export default function EditProfile() {
                                     required
                                 />
                                 <CalendarTodayOutlinedIcon className={styles.icon} />
-                            </div> 
+                            </div>
                         </div>
                         <div className={styles.formGroup}>
                             <div className={styles.inputWrapper}>
@@ -112,11 +111,13 @@ export default function EditProfile() {
                                     name="role"
                                     className={styles.input}
                                     value={role}
-                                    onChange={(e) => setRole(e.target.value as "CLIENTE" | "AGIOTA")}
+                                    onChange={(e) => setRole(e.target.value as "CLIENTE" | "AGIOTA" | "ADMIN")}
                                     required
                                 >
                                     <option value="CLIENTE">Cliente</option>
                                     <option value="AGIOTA">Agiota</option>
+                                    <option value="ADMIN">Admin</option>
+
                                 </select>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-import { ILoginData, IUserData } from "@/app/shared/@types/auth";
+import { IEmprestimo, ILoginData, IUserData } from "@/app/shared/@types/auth";
 import { api } from "../api";
 
 
@@ -57,6 +57,40 @@ export const listAgiotas = async () => {
   }
 };
 
+export const listUsersByAgiota = async (agiotaId: number) => {
+  try {
+    
+    const emprestimosResponse = await api.get(`/emprestimos?agiotaId=${agiotaId}`);
+
+    if (emprestimosResponse.status !== 200) {
+      throw new Error(`Erro ao buscar empréstimos: ${emprestimosResponse.statusText}`);
+    }
+
+    const emprestimos = emprestimosResponse.data;
+    const userIds = emprestimos.map((emprestimo: any) => emprestimo.usuarioId);
+    const usersResponse = await api.get(`/usuarios?ids=${userIds.join(",")}`);
+
+    if (usersResponse.status !== 200) {
+      throw new Error(`Erro ao buscar usuários: ${usersResponse.statusText}`);
+    }
+
+    return usersResponse.data;
+  } catch (error) {
+    console.error("Erro ao buscar usuários:", error);
+    throw error;
+  }
+};
+
+
+export const getAgiotaById = async (agiotaId: number) => {
+  try {
+    const response = await api.get(`/agiotas/${agiotaId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const updateAgiota = async (agiotaId: number, updatedData: { nome: string; taxaJuros: number, email: string }) => {
   try {
     const response = await api.put(`/agiotas/${agiotaId}`, updatedData);
@@ -86,7 +120,7 @@ export const createEmprestimo = async (userData: {
     const dataAtual = new Date();
     
     const dataEmprestimo = new Date(
-      dataAtual.getTime() - (dataAtual.getTimezoneOffset() * 60000)
+      dataAtual.getTime() + (24 * 60 * 60 * 1000) - (dataAtual.getTimezoneOffset() * 60000)
     ).toISOString().split('T')[0];
     
     const dataVencimentoObj = new Date(dataAtual);
@@ -112,6 +146,29 @@ export const createEmprestimo = async (userData: {
 };
 
 
+export const listEmprestimosFiltrados = async (
+  id: number | null = null, 
+  tipoFiltro: 'CLIENTE' | 'AGIOTA' | null = null
+) => {
+  try {
+    const response = await api.get('/emprestimos'); 
+    const emprestimos = response.data;
+
+    const emprestimosFiltrados = emprestimos.filter((emprestimo: IEmprestimo) => {
+      if (tipoFiltro === 'CLIENTE' && id) {
+        return emprestimo.usuario.id === id;
+      } else if (tipoFiltro === 'AGIOTA' && id) {
+        return emprestimo.agiota.id === id;
+      }
+      return false;
+    });
+
+    return emprestimosFiltrados;
+  } catch (error) {
+    console.error("Erro ao buscar empréstimos filtrados:", error);
+    throw error;
+  }
+};
 
 export const listEmprestimos = async () => {
   try {
@@ -122,3 +179,12 @@ export const listEmprestimos = async () => {
   }
 };
 
+
+export const getUserRoles = async (): Promise<"CLIENTE" | "AGIOTA"> => {
+  try {
+    const response = await api.get('/usuarios'); 
+    return response.data.role; 
+  } catch (error) {
+    throw error;
+  }
+};

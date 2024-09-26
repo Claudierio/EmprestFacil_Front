@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { listEmprestimos } from "@/app/shared/service/api/Auth/authApi";
+import { listEmprestimos, listEmprestimosFiltrados } from "@/app/shared/service/api/Auth/authApi";
 import styles from "./listaEmprestimo.module.scss";
 import { IEmprestimo } from "@/app/shared/@types/auth";
-import NotaFiscalModal from "@/app/shared/components/notaFiscal/NotaFiscalModal"; // Import do modal
+import NotaFiscalModal from "@/app/shared/components/notaFiscal/NotaFiscalModal";
+import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
 
 export default function ListaEmprestimos() {
   const [emprestimos, setEmprestimos] = useState<IEmprestimo[]>([]);
@@ -11,17 +12,38 @@ export default function ListaEmprestimos() {
   const [filtro, setFiltro] = useState<string>("");
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedEmprestimo, setSelectedEmprestimo] = useState<IEmprestimo | null>(null);
-
+  const { user } = useAuthContext();
+  const tipoFiltro = user?.role === "AGIOTA" ? 'AGIOTA' : 'CLIENTE';
   useEffect(() => {
     const fetchEmprestimos = async () => {
-      try {
-        const response = await listEmprestimos();
-        setEmprestimos(response);
-      } catch (error) {
-        console.error("Erro ao carregar empréstimos:", error);
-        setErro("Não foi possível carregar a lista de empréstimos.");
+      if (user?.role === "ADMIN") {
+        try {
+          const response = await listEmprestimos();
+          setEmprestimos(response);
+        } catch (error) {
+          console.error("Erro ao carregar empréstimos:", error);
+          setErro("Não foi possível carregar a lista de empréstimos.");
+        }
+      } else if (user?.role === "CLIENTE") {
+        try {
+          const response = await listEmprestimosFiltrados(user?.id!, tipoFiltro);
+          setEmprestimos(response);
+          console.log(response);
+        } catch (error) {
+          console.error("Erro ao carregar empréstimos:", error);
+          setErro("Não foi possível carregar a lista de empréstimos.");
+        }
+      } else if (user?.role === "AGIOTA") {
+        try {
+          const response = await listEmprestimosFiltrados(user?.id!, tipoFiltro);
+          setEmprestimos(response);
+          console.log(response);
+        } catch (error) {
+          console.error("Erro ao carregar empréstimos:", error);
+          setErro("Não foi possível carregar a lista de empréstimos.");
+        }
       }
-    };
+    }
     fetchEmprestimos();
   }, []);
 
@@ -77,7 +99,7 @@ export default function ListaEmprestimos() {
                   <tr
                     key={emprestimo.id}
                     className={styles.tableRow}
-                    onClick={() => openModal(emprestimo)} // Adicionar o click para abrir o modal
+                    onClick={() => openModal(emprestimo)}
                   >
                     <td className={styles.tableCell}>
                       {emprestimo.agiota?.nome || "Desconhecido"}

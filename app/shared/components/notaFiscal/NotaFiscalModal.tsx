@@ -30,6 +30,8 @@ const NotaFiscalModal: React.FC<INotaFiscalModalProps> = ({
         <p><strong>Taxa de Juros:</strong> {emprestimo.agiota?.taxaJuros}%</p>
         <p><strong>Valor Total:</strong> {valorTotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</p>
         <p><strong>Data de Vencimento:</strong> {dataVencimento}</p>
+        <p><strong>Data emprestimo:</strong> {dataEmprestimo}</p>
+
         <button onClick={onClose} className={styles.closeButton}>Fechar</button>
       </div>
     </div>

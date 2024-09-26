@@ -4,7 +4,7 @@ interface IUserData {
     email: string;
     senha: string;
     dataNascimento: string;
-    role: "CLIENTE" | "AGIOTA"; 
+    role: "CLIENTE" | "AGIOTA" |"ADMIN"; 
   }
 export interface ILoginData {
     email: string; 
