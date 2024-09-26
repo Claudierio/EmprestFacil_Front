@@ -1,4 +1,4 @@
-import { IEmprestimo, ILoginData, IUserData } from "@/app/shared/@types/auth";
+import { IAvaliacao, IEmprestimo, ILoginData, IUserData } from "@/app/shared/@types/auth";
 import { api } from "../api";
 
 
@@ -188,3 +188,30 @@ export const getUserRoles = async (): Promise<"CLIENTE" | "AGIOTA"> => {
     throw error;
   }
 };
+
+export const listAvaliacoes = async () => {
+  try {
+    const response = await api.get('/avaliacoes');
+    return response.data; 
+  } catch (error) {
+    throw error;
+  }
+};
+
+export async function calcularMediaAvaliacoes(idAgiota: number): Promise<number | null> {
+  try {
+    const avaliacoes: IAvaliacao[] = await listAvaliacoes();
+
+    const avaliacoesFiltradas = avaliacoes.filter(avaliacao => avaliacao.agiota.id === idAgiota);
+
+    if (avaliacoesFiltradas.length === 0) {
+      return null;     }
+
+    const somaNotas = avaliacoesFiltradas.reduce((total, avaliacao) => total + avaliacao.nota, 0);
+    const media = somaNotas / avaliacoesFiltradas.length;
+    return media;
+  } catch (error) {
+    console.error("Erro ao calcular média das avaliações:", error);
+    return null; 
+  }
+}

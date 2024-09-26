@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import { listAgiotas, deleteAgiota } from "@/app/shared/service/api/Auth/authApi";
+import { listAgiotas, deleteAgiota, calcularMediaAvaliacoes } from "@/app/shared/service/api/Auth/authApi";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import styles from "./listaAgiota.module.scss";
@@ -21,12 +21,27 @@ export default function ListaAgiota() {
   const [erro, setErro] = useState<string | null>(null);
   const [filtro, setFiltro] = useState<string>("");
   const [agiotaParaDeletar, setAgiotaParaDeletar] = useState<number | null>(null);
-
+  const [media, setMedia] = useState<number | null>(0);
   useEffect(() => {
     const fetchAgiotas = async () => {
       try {
-        const response = await listAgiotas();
+        const response: Agiota[] = await listAgiotas();
+
         setAgiotas(response);
+        response.forEach((agiota: Agiota) => {
+          console.log(agiota.id);
+        });
+
+        const mediaAvaliacoesArray = await Promise.all(
+          response.map(agiota => calcularMediaAvaliacoes(agiota.id))
+        );
+        const avaliacoesValidas = mediaAvaliacoesArray.filter(media => media !== null) as number[];
+        if (avaliacoesValidas.length > 0) {
+          const mediaTotal = avaliacoesValidas.reduce((acc, val) => acc + val, 0) / avaliacoesValidas.length;
+          setMedia(mediaTotal);
+        } else {
+          setMedia(null);
+        }
       } catch (error) {
         console.error("Erro ao carregar agiotas:", error);
         setErro("Não foi possível carregar a lista de agiotas.");
@@ -35,6 +50,7 @@ export default function ListaAgiota() {
 
     fetchAgiotas();
   }, []);
+
 
   const agiotasFiltrados = agiotas.filter((agiota) =>
     agiota.nome.toLowerCase().includes(filtro.toLowerCase())
@@ -82,7 +98,7 @@ export default function ListaAgiota() {
                 <tr key={agiota.id} className={styles.tableRow}>
                   <td className={styles.tableCell}>{agiota.nome}</td>
                   <td className={styles.tableCell}>{agiota.taxaJuros.toFixed(2)}%</td>
-                  <td className={styles.tableCell}>{agiota.avaliacao} / 5.0</td>
+                  <td className={styles.tableCell}>{media} / 5.0</td>
                   <td className={styles.tableCell}>
                     <EditAgiotaModal
                       agiotaId={agiota.id}
