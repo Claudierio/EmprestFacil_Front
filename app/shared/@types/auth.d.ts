@@ -45,3 +45,10 @@ export interface IAgiota {
     dataEmprestimo: string;   
     dataVencimento: string;
   }
+  export interface IAvaliacao{
+    id: number;
+    agiota: Agiota | null;
+    nota: number;
+    comentario: string;
+    dataAvaliacao: string;
+  }
