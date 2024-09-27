@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EmprestFacil Frontend
 
-## Getting Started
+Este repositório contém o front-end do sistema **EmprestFacil**, uma aplicação para gerenciar empréstimos, agiotas e usuários. O projeto utiliza **Next.js** com **TypeScript** para a construção da interface de usuário.
 
-First, run the development server:
+![Página Inicial](public/homepage.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js**: Framework React para a construção da interface de usuário, com renderização server-side e client-side.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática ao código.
+- **Axios**: Biblioteca para realizar chamadas HTTP à API backend.
+- **React Hooks**: Hooks para gerenciamento de estado e ciclo de vida dos componentes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `app/`: Contém as páginas e componentes principais do front-end.
+  - `profile/`: Página de edição de perfil de usuário.
+  - `loan/`: Página para listar e criar empréstimos.
+  - `agiota/`: Página para gerenciar agiotas.
+- `public/`: Arquivos públicos, como imagens e outros recursos estáticos.
+- `utils/`: Funções utilitárias usadas em várias partes do projeto.
+- `next.config.mjs`: Configurações de compilação e execução do Next.js.
+- `package.json`: Gerenciamento de dependências e scripts de automação.
+- `tsconfig.json`: Configurações do TypeScript.
 
-## Learn More
+## Instalação e Configuração
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-repositorio>
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Instale as dependências:**
+   No diretório do projeto, execute:
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Rodando a aplicação:**
+   Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+   A aplicação será iniciada em [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+## Integração com o Backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este projeto está configurado para consumir uma API REST, que faz o gerenciamento dos dados de usuários, emprestadores e empréstimos. Certifique-se de que o backend (disponível em outro repositório) esteja rodando para que a aplicação funcione corretamente.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
