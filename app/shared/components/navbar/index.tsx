@@ -10,6 +10,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import { useAuthContext } from "@/app/shared/contexts/Auth/AuthContext";
+import AuthStatus from "../authStatus";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -77,6 +78,8 @@ export default function Navbar() {
             <AttachMoneyOutlinedIcon />
             <span>Empréstimo</span>
           </Link>
+
+          <AuthStatus />
         </div>
 
         <div className={styles.navright}>
